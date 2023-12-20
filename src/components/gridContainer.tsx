@@ -19,24 +19,22 @@ export default function GridContainer({products}: {products:ProductData[]}) {
 
     useEffect(() => {
         setIsLoading(true);
-        const storedCards = JSON.parse(window.localStorage.getItem('cards') || '[]');
-        if (storedCards.length > 0) {
-            setCards(storedCards);
-        } else {
+        if ('cards' in window.localStorage) {
+            setCards(JSON.parse(window.localStorage.getItem('cards') || `[]`));
+            console.log('uhh');
+        } else if (products.length > 0) {
             setCards(products);
+            console.log(products);
+            window.localStorage.setItem('cards', JSON.stringify(products));
+            console.log('hmm');
         }
         setIsLoading(false);
-    }, [products]);
-
-    useEffect(() => {
-        if (typeof window !== 'undefined' && cards.length > 0) {
-            window.localStorage.setItem('cards', JSON.stringify(cards));
-        }
-    }, [cards]);
+    }, []);
 
     const handleDelete = (sku: string) => {
         const newCards = cards.filter((card: ProductData) => card.sku !== sku);
         setCards(newCards);
+        window.localStorage.setItem('cards', JSON.stringify(newCards));
     }
 
     const handleAddCard = async (skus: string[]) => {
@@ -48,7 +46,10 @@ export default function GridContainer({products}: {products:ProductData[]}) {
           variant: newProducts.length < skus.length ? "failure" : "success",
         });
 
-        setCards(prevCards => [...prevCards, ...newProducts]);
+        const updatedCards = [...cards, ...newProducts];
+        localStorage.setItem('cards', JSON.stringify(updatedCards));
+
+        setCards(updatedCards);
         setIsAdding(0);
     }
 
