@@ -95,6 +95,7 @@ async function fetchStock(sku: string): Promise<StockData> {
         console.log(sku);
     }
 
+    await new Promise((resolve) => setTimeout(resolve, Math.random() * 250));
 
     const channelId = 'd9a5bc42-4b9c-4976-858a-f159cf99c647';
     const result = await fetch(`https://api.nike.com/product_feed/threads/v2?filter=productInfo.merchProduct.styleColor(${sku})&filter=channelId(${channelId})&filter=marketplace(US)&filter=language(en)`, {
@@ -107,8 +108,6 @@ async function fetchStock(sku: string): Promise<StockData> {
             "pragma": "no-cache",
         },
     });
-
-    await new Promise((resolve) => setTimeout(resolve, 250));
 
     return result.json();
 }
