@@ -111,9 +111,9 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <h6>Nike Product Tracker</h6>
                 </div>
                 <div className="flex flex-col items-center">
-                    <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">
+                    <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-500 lg:block sm:hidden">
                         <PiStudentFill className="w-6 h-6 mt-2" />
-                        <AlertTitle className="text-sm font-medium ml-2 mb-0 mt-0">Consider checking my work out below!</AlertTitle>
+                        <AlertTitle className="text-sm font-medium ml-2 mb-0 mt-0">Consider checking my work out below ↓</AlertTitle>
                         <AlertDescription>
                              <div className="flex items-center justify-start">
                                 <Button variant="link" className="p-2">My LinkedIn</Button>

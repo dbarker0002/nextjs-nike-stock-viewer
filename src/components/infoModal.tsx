@@ -24,12 +24,13 @@ export function InfoModal({data}: {data: ProductData}) {
                 <DialogHeader>
                     <DialogTitle>{data.title}</DialogTitle>
                     <DialogDescription>
-                    {data.colorway}
+                    <div>{data.colorway}</div>
+                    {data.sku}
                     </DialogDescription>
                 </DialogHeader>
                 <img src={data.imageURL} className="max-h-[220px] w-full object-cover"></img>
                 <hr className="pb-2 pt-0"></hr>
-                <div>{data.sku}</div>
+                <h3>Placeholder</h3>
                 <DialogFooter>
                     <Button className="bg-red-500">Remove</Button>
                     <Button variant="outline" className="mx-2" asChild>

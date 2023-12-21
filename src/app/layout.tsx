@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/toaster"
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nike SKU Manager',
-  description: 'View and manage Nike products.',
+  title: 'Swoosh Spy',
+  description: 'Nike Product Tracker',
 }
 
 export default function RootLayout({
