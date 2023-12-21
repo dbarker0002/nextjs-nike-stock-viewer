@@ -41,15 +41,18 @@ export default function GridContainer({products}: {products:ProductData[]}) {
         setIsAdding(skus.length);
         const newProducts = await getProductData(skus);
         
+        const existingCards = JSON.parse(localStorage.getItem('cards') || '[]');
+        const updatedCards = existingCards.filter((card:any) => !skus.includes(card.sku));
+        
         toast({
-          description: newProducts.length < skus.length ? "Failed to add one or more products." : "Products added successfully.",
-          variant: newProducts.length < skus.length ? "failure" : "success",
+            description: newProducts.length < skus.length ? "Failed to add one or more products." : "Products added successfully.",
+            variant: newProducts.length < skus.length ? "failure" : "success",
         });
 
-        const updatedCards = [...cards, ...newProducts];
-        localStorage.setItem('cards', JSON.stringify(updatedCards));
+        const updatedProducts = [...updatedCards, ...newProducts];
+        localStorage.setItem('cards', JSON.stringify(updatedProducts));
 
-        setCards(updatedCards);
+        setCards(updatedProducts);
         setIsAdding(0);
     }
 
