@@ -72,11 +72,13 @@ export default function GridContainer({products}: {products:ProductData[]}) {
     });
 
     return (
-        <div>
-            <div className="mx-4 my-4 space-x-2 flex justify-end items-center">
+        <div className="w-full">
+            <div className="mx-4 my-4 space-x-2 flex flex-wrap justify-end items-center">
                 <h1 className="flex-shrink-0 mr-6 mb-2">Nike Stock Viewer</h1>
-                <Input placeholder="Search Products" className='focus:ring-0'  
-                onChange={(e) => setSearchValue(e.target.value)} value={searchValue}/>
+                <div className="flex-grow">
+                <   Input placeholder="Search Products" className="w-full focus:ring-0"  
+                    onChange={(e) => setSearchValue(e.target.value)} value={searchValue}/>
+                </div>
                 <AddModal onAdd={handleAddCard}></AddModal>
                 <Button variant="outline" onClick={() => handleRefresh()}><HiOutlineRefresh className="mr-1"/>Refresh</Button>
             </div>

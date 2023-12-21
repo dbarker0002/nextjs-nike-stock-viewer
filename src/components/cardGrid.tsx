@@ -7,7 +7,7 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
     
         if (isLoading) {
             return (
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4 w-120">
+                <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4 w-120">
                     {products.map((item) => (
                         <SkeletonCard key={item.sku}></SkeletonCard>
                     ))}
@@ -18,8 +18,8 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                 return (
                     <div>
                         <p className="flex justify-center">No products found.</p>
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
-                        {Array.from({length: 3}, (_, index) => (
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                        {Array.from({length: 4}, (_, index) => (
                             <SkeletonCard key={index}></SkeletonCard>
                         ))}
                     </div>
@@ -27,7 +27,7 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                 )
             } else {
                 return (
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
                         {products.map((item) => (
                             <CardItem key={item.sku} product={item} onDelete={onDelete}></CardItem>
                         ))}
