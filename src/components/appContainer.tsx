@@ -117,9 +117,9 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                         <AlertDescription>
                              <div className="flex items-center justify-start">
                                 <Button variant="link" className="p-2">My LinkedIn</Button>
-                                <Separator orientation="vertical" className="h-[16px] bg-slate-500 flex" />
+                                <Separator orientation="vertical" className="h-[16px] bg-slate-400" />
                                 <Button variant="link" className="p-2">My Resume</Button>
-                                <Separator orientation="vertical" className="h-[16px] bg-slate-500 flex" />
+                                <Separator orientation="vertical" className="h-[16px] bg-slate-400" />
                                 <Button variant="link" className="pl-2 pb-2 pr-0">View on GitHub</Button>
                             </div>
                         </AlertDescription>
