@@ -31,12 +31,12 @@ export function InfoModal({data}: {data: ProductData}) {
                 <hr className="pb-2 pt-0"></hr>
                 <div>{data.sku}</div>
                 <DialogFooter>
+                    <Button className="bg-red-500">Remove</Button>
                     <Button variant="outline" className="mx-2" asChild>
                         <Link href={data.url} rel="noopener noreferrer" target="_blank">
                             View on {siteText}
                         </Link>
                     </Button>
-                    <Button className="bg-red-500">Remove</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>

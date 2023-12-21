@@ -7,7 +7,12 @@ import { AddModal } from '@/components/addModal';
 import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
 import { HiOutlineRefresh } from "react-icons/hi";
+import { BsCartCheck } from "react-icons/bs";
+import { FaRegCheckCircle } from "react-icons/fa";
+import { RiComputerLine } from "react-icons/ri";
+import { HiDevicePhoneMobile } from "react-icons/hi2";
 import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
 
 export default function GridContainer({products}: {products:ProductData[]}) {
     const [cards, setCards] = useState<ProductData[]>([]);
@@ -73,14 +78,23 @@ export default function GridContainer({products}: {products:ProductData[]}) {
 
     return (
         <div className="w-full">
-            <div className="mx-4 my-4 space-x-2 flex flex-wrap justify-end items-center">
+            <div className="mx-4 my-4 space-x-1 flex flex-wrap justify-center items-center">
                 <h1 className="flex-shrink-0 mr-6 mb-2">Nike Stock Viewer</h1>
                 <div className="flex-grow">
-                <   Input placeholder="Search Products" className="w-full focus:ring-0"  
+                <   Input placeholder="Filter Products" className="w-full focus:ring-0"  
                     onChange={(e) => setSearchValue(e.target.value)} value={searchValue}/>
                 </div>
-                <AddModal onAdd={handleAddCard}></AddModal>
-                <Button variant="outline" onClick={() => handleRefresh()}><HiOutlineRefresh className="mr-1"/>Refresh</Button>
+                {/* <div className="space-x-1"> */}
+                    <Button variant="outline"><FaRegCheckCircle className="mr-1"/>Active</Button>
+                    <Button variant="outline"><BsCartCheck className="mr-1"/>In Stock</Button>
+                    <Button variant="outline"><RiComputerLine className="mr-1"/>Nike.com</Button>
+                    <Button variant="outline"><HiDevicePhoneMobile className="mr-1"/>SNKRS</Button>
+                {/* </div> */}
+                <Separator orientation="vertical" className="h-[34px]" style={{marginLeft: "12px", marginRight: "8px"}} />
+                {/* <div className="space-x-1"> */}
+                    <AddModal onAdd={handleAddCard}></AddModal>
+                    <Button variant="outline" onClick={() => handleRefresh()}><HiOutlineRefresh className="mr-1"/>Refresh</Button>
+                {/* </div> */}
             </div>
             <div><hr className="pb-2 pt-0 mx-4"></hr></div>
             <CardGrid products={filteredCards} onDelete={handleDelete} isLoading={isLoading} isAdding={isAdding}></CardGrid>
