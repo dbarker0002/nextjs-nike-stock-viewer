@@ -1,4 +1,4 @@
-import GridContainer from "@/components/gridContainer"
+import AppContainer from "@/components/appContainer"
 import { getProductData } from "@/utils/nike/product";
 
 export default async function Home() {
@@ -8,7 +8,7 @@ export default async function Home() {
 
     return (
     <main className="flex justify-center">
-        <GridContainer products={products}></GridContainer>
+        <AppContainer products={products}></AppContainer>
     </main>
     )
 }
