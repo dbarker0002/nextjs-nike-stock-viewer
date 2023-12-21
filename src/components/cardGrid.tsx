@@ -14,16 +14,29 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                 </div>
             )
         } else {
-            return (
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
-                    {products.map((item) => (
-                        <CardItem key={item.sku} product={item} onDelete={onDelete}></CardItem>
-                    ))}
-                    {Array.from({length: isAdding}, (_, index) => (
-                        <SkeletonCard key={index}></SkeletonCard>
-                    ))}
-                </div>
-            )
+            if (products.length === 0) {
+                return (
+                    <div>
+                        <p className="flex justify-center">No products found.</p>
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                        {Array.from({length: 3}, (_, index) => (
+                            <SkeletonCard key={index}></SkeletonCard>
+                        ))}
+                    </div>
+                    </div>
+                )
+            } else {
+                return (
+                    <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                        {products.map((item) => (
+                            <CardItem key={item.sku} product={item} onDelete={onDelete}></CardItem>
+                        ))}
+                        {Array.from({length: isAdding}, (_, index) => (
+                            <SkeletonCard key={index}></SkeletonCard>
+                        ))}
+                    </div>
+                )
+            }
         }
     
 }
