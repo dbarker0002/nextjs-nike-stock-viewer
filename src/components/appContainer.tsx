@@ -22,6 +22,7 @@ import {
   AlertDescription,
   AlertTitle,
 } from "@/components/ui/alert"
+import { StatusFilterDropdown } from '@/components/filterDropdown';
 
 export default function AppContainer({products}: {products:ProductData[]}) {
     const [cards, setCards] = useState<ProductData[]>([]);
@@ -78,10 +79,23 @@ export default function AppContainer({products}: {products:ProductData[]}) {
         setIsLoading(false);
     }
 
+    const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+    const handleFilterChange = (filters: string[]) => {
+        console.log(filters);
+        setSelectedFilters(filters);
+    };
+
     const filteredCards = cards.filter((card) => {
         const cardValues = Object.values(card);
-        return cardValues.some((value) =>
-        typeof value === "string" && value.toLowerCase().includes(searchValue.toLowerCase())
+        return (
+            cardValues.some(
+            (value) =>
+                typeof value === "string" &&
+                value.toLowerCase().includes(searchValue.toLowerCase())
+            ) &&
+            (selectedFilters.length === 0 ||
+            selectedFilters.includes(card.status.toLowerCase()))
         );
     });
 
@@ -128,9 +142,14 @@ export default function AppContainer({products}: {products:ProductData[]}) {
             </div>
             <div className="mx-4 mb-5 mt-4 space-x-4 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2">
-                    <Button variant="outline">
+                    <StatusFilterDropdown button={
+                        <Button variant="outline">
                         <FaRegCheckCircle className="mr-1" />Status<FaAngleDown className="ml-1" />
-                    </Button>
+                        </Button>
+                    }
+                    onFilterChange={handleFilterChange}
+                    ></StatusFilterDropdown>
+                    
                     <Button variant="outline">
                         <BsCartCheck className="mr-1" />Availability<FaAngleDown className="ml-1" />
                     </Button>
