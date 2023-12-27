@@ -17,18 +17,21 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { FcGoogle } from "react-icons/fc";
 import { PiStudentFill } from "react-icons/pi";
+import { LuDollarSign } from "react-icons/lu";
 import {
   Alert,
   AlertDescription,
   AlertTitle,
 } from "@/components/ui/alert"
-import { StatusFilterDropdown } from '@/components/filterDropdown';
+import { StatusFilterDropdown, PlatformFilterDropdown } from '@/components/filterDropdown';
 
 export default function AppContainer({products}: {products:ProductData[]}) {
     const [cards, setCards] = useState<ProductData[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isAdding, setIsAdding] = useState(0);
     const [searchValue, setSearchValue] = useState("");
+    const [selectedStatusFilters, setSelectedStatusFilters] = useState<string[]>([]);
+    const [selectedPlatformFilters, setSelectedPlatformFilters] = useState<string[]>([]);
 
     const { toast } = useToast()
 
@@ -79,23 +82,26 @@ export default function AppContainer({products}: {products:ProductData[]}) {
         setIsLoading(false);
     }
 
-    const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-
-    const handleFilterChange = (filters: string[]) => {
-        console.log(filters);
-        setSelectedFilters(filters);
+    const handleStatusFilterChange = (filters: string[]) => {
+        setSelectedStatusFilters(filters);
     };
+
+    const handlePlatformFilterChange = (filters: string[]) => {
+    setSelectedPlatformFilters(filters);
+};
 
     const filteredCards = cards.filter((card) => {
         const cardValues = Object.values(card);
         return (
             cardValues.some(
-            (value) =>
-                typeof value === "string" &&
-                value.toLowerCase().includes(searchValue.toLowerCase())
+                (value) =>
+                    typeof value === "string" &&
+                    value.toLowerCase().includes(searchValue.toLowerCase())
             ) &&
-            (selectedFilters.length === 0 ||
-            selectedFilters.includes(card.status.toLowerCase()))
+            (selectedStatusFilters.length === 0 ||
+                selectedStatusFilters.includes(card.status.toLowerCase())) &&
+            (selectedPlatformFilters.length === 0 ||
+                selectedPlatformFilters.includes(card.publishType.toLowerCase()))
         );
     });
 
@@ -143,22 +149,28 @@ export default function AppContainer({products}: {products:ProductData[]}) {
             <div className="mx-4 mb-5 mt-4 space-x-4 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2">
                     <StatusFilterDropdown button={
-                        <Button variant="outline">
-                        <FaRegCheckCircle className="mr-1" />Status<FaAngleDown className="ml-1" />
+                        <Button variant="outline" className="focus:ring-0">
+                            <FaRegCheckCircle className="mr-1" />Status<FaAngleDown className="ml-1" />
                         </Button>
                     }
-                    onFilterChange={handleFilterChange}
+                    onFilterChange={handleStatusFilterChange}
                     ></StatusFilterDropdown>
-                    
                     <Button variant="outline">
                         <BsCartCheck className="mr-1" />Availability<FaAngleDown className="ml-1" />
                     </Button>
+                    <PlatformFilterDropdown button={
+                        <Button variant="outline" className="focus:ring-0">
+                            <RiComputerLine className="mr-1" />Platform<FaAngleDown className="ml-1" />
+                        </Button>
+                    }
+                    onFilterChange={handlePlatformFilterChange}
+                    ></PlatformFilterDropdown>
                     <Button variant="outline">
-                        <RiComputerLine className="mr-1" />Platform<FaAngleDown className="ml-1" />
+                        <LuDollarSign className="mr-0.5" />Price<FaAngleDown className="ml-1" />
                     </Button>
                     <Input
                         placeholder="Search Products"
-                        className="focus:ring-0 xl:w-96 lg:w-64 md:w-48 sm:w-32"
+                        className="focus:ring-0 xl:w-80 lg:w-64 md:w-48 sm:w-32"
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />

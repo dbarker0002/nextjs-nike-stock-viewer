@@ -69,3 +69,95 @@ export function StatusFilterDropdown({ button, onFilterChange }: { button: React
         </DropdownMenu>
     )
 }
+
+export function PlatformFilterDropdown({ button, onFilterChange }: { button: React.ReactNode, onFilterChange: (filters: string[]) => void }) {
+    const [selectedFilters, setSelectedFilters] = React.useState<string[]>(["flow", "launch"]);
+
+    // New function to handle checked change
+    const handleCheckedChange = (filter: string, checked: boolean) => {
+        setSelectedFilters((prevFilters) => {
+            let updatedFilters;
+            if (checked) {
+                updatedFilters = [...prevFilters, filter];
+            } else {
+                updatedFilters = prevFilters.filter((f) => f !== filter);
+            }
+            onFilterChange(updatedFilters);
+            return updatedFilters;
+        });
+    };
+
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                {button}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="">
+                <DropdownMenuCheckboxItem
+                    checked={selectedFilters.includes("flow")}
+                    onCheckedChange={(checked) => handleCheckedChange("flow", checked)}
+                    onSelect={(event) => event.preventDefault()}
+                >
+                    <Badge variant="outline" className={`px-1.5 mx-0.5`}>
+                        Nike.com
+                    </Badge>
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem
+                    checked={selectedFilters.includes("launch")}
+                    onCheckedChange={(checked) => handleCheckedChange("launch", checked)}
+                    onSelect={(event) => event.preventDefault()}
+                >
+                    <Badge variant="outline" className={`px-1.5 mx-0.5`}>
+                        SNKRS Launch
+                    </Badge>
+                </DropdownMenuCheckboxItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    )
+}
+
+export function AvailabilityFilterDropdown({ button, onFilterChange }: { button: React.ReactNode, onFilterChange: (filters: string[]) => void }) {
+    const [selectedFilters, setSelectedFilters] = React.useState<string[]>(["in stock", "out of stock"]);
+
+    // New function to handle checked change
+    const handleCheckedChange = (filter: string, checked: boolean) => {
+        setSelectedFilters((prevFilters) => {
+            let updatedFilters;
+            if (checked) {
+                updatedFilters = [...prevFilters, filter];
+            } else {
+                updatedFilters = prevFilters.filter((f) => f !== filter);
+            }
+            onFilterChange(updatedFilters);
+            return updatedFilters;
+        });
+    };
+
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                {button}
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="">
+                <DropdownMenuCheckboxItem
+                    checked={selectedFilters.includes("in stock")}
+                    onCheckedChange={(checked) => handleCheckedChange("in stock", checked)}
+                    onSelect={(event) => event.preventDefault()}
+                >
+                    <Badge variant="outline" className={`px-1.5 mx-0.5`}>
+                        In Stock
+                    </Badge>
+                </DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem
+                    checked={selectedFilters.includes("out of stock")}
+                    onCheckedChange={(checked) => handleCheckedChange("out of stock", checked)}
+                    onSelect={(event) => event.preventDefault()}
+                >
+                    <Badge variant="outline" className={`px-1.5 mx-0.5`}>
+                        Out of Stock
+                    </Badge>
+                </DropdownMenuCheckboxItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    )
+}
