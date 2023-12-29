@@ -91,8 +91,6 @@ async function fetchStock(sku: string): Promise<StockData> {
         }
         
         sku = extractedSku;
-
-        console.log(sku);
     }
 
     await new Promise((resolve) => setTimeout(resolve, Math.random() * 200));

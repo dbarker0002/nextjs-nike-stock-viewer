@@ -20,7 +20,7 @@ export function AddModal({onAdd}: {onAdd:Function}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" onClick={() => setInputValue("")}><IoMdAdd className="mr-1"/>Add Products</Button>
+        <Button variant="outline" id="addProducts" onClick={() => setInputValue("")}><IoMdAdd className="mr-1"/>Add Products</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
@@ -37,7 +37,7 @@ export function AddModal({onAdd}: {onAdd:Function}) {
         </div>
         <DialogFooter>
             <DialogClose asChild>
-                <Button disabled={!inputValue} onClick={() => {
+                <Button disabled={!inputValue} id="saveProducts" onClick={() => {
                     const skus = inputValue.split(",").map((sku) => sku.trim());
                     onAdd(skus); 
                 }}>Save changes</Button>

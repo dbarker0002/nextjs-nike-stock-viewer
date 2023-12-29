@@ -12,13 +12,22 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+import { LuDollarSign } from "react-icons/lu"
+import { FaAngleDown } from "react-icons/fa"
  
 type Checked = DropdownMenuCheckboxItemProps["checked"]
  
 export function StatusFilterDropdown({ button, onFilterChange }: { button: React.ReactNode, onFilterChange: (filters: string[]) => void }) {
     const [selectedFilters, setSelectedFilters] = React.useState<string[]>(["active", "closeout", "hold"]);
 
-    // New function to handle checked change
     const handleCheckedChange = (filter: string, checked: boolean) => {
         setSelectedFilters((prevFilters) => {
             let updatedFilters;
@@ -43,7 +52,7 @@ export function StatusFilterDropdown({ button, onFilterChange }: { button: React
                     onCheckedChange={(checked) => handleCheckedChange("active", checked)}
                     onSelect={(event) => event.preventDefault()}
                 >
-                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-green-100`}>
+                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-green-100 dark:bg-green-700`}>
                         Active
                     </Badge>
                 </DropdownMenuCheckboxItem>
@@ -52,7 +61,7 @@ export function StatusFilterDropdown({ button, onFilterChange }: { button: React
                     onCheckedChange={(checked) => handleCheckedChange("closeout", checked)}
                     onSelect={(event) => event.preventDefault()}
                 >
-                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-amber-100`}>
+                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-amber-100 dark:bg-amber-500`}>
                         Closeout
                     </Badge>
                 </DropdownMenuCheckboxItem>
@@ -61,7 +70,7 @@ export function StatusFilterDropdown({ button, onFilterChange }: { button: React
                     onCheckedChange={(checked) => handleCheckedChange("hold", checked)}
                     onSelect={(event) => event.preventDefault()}
                 >
-                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-red-100`}>
+                    <Badge variant="outline" className={`px-1.5 mx-0.5 bg-red-100 dark:bg-red-700`}>
                         Hold
                     </Badge>
                 </DropdownMenuCheckboxItem>
@@ -73,7 +82,6 @@ export function StatusFilterDropdown({ button, onFilterChange }: { button: React
 export function PlatformFilterDropdown({ button, onFilterChange }: { button: React.ReactNode, onFilterChange: (filters: string[]) => void }) {
     const [selectedFilters, setSelectedFilters] = React.useState<string[]>(["flow", "launch"]);
 
-    // New function to handle checked change
     const handleCheckedChange = (filter: string, checked: boolean) => {
         setSelectedFilters((prevFilters) => {
             let updatedFilters;
@@ -119,7 +127,6 @@ export function PlatformFilterDropdown({ button, onFilterChange }: { button: Rea
 export function AvailabilityFilterDropdown({ button, onFilterChange }: { button: React.ReactNode, onFilterChange: (filters: string[]) => void }) {
     const [selectedFilters, setSelectedFilters] = React.useState<string[]>(["in stock", "out of stock"]);
 
-    // New function to handle checked change
     const handleCheckedChange = (filter: string, checked: boolean) => {
         setSelectedFilters((prevFilters) => {
             let updatedFilters;
@@ -159,5 +166,59 @@ export function AvailabilityFilterDropdown({ button, onFilterChange }: { button:
                 </DropdownMenuCheckboxItem>
             </DropdownMenuContent>
         </DropdownMenu>
+    )
+}
+
+export function PriceFilterDropdown({ onFilterChange }: { onFilterChange: (filters: number[]) => void }) {
+    const [selectedPriceFilters, setSelectedPriceFilters] = React.useState<number[]>([0, 9999]);
+
+    const handleMinPriceChange = (price: number) => {
+        setSelectedPriceFilters(prevFilters => [price, prevFilters[1]]);
+        onFilterChange(selectedPriceFilters);
+    };
+
+    const handleMaxPriceChange = (price: number) => {
+        setSelectedPriceFilters(prevFilters => [prevFilters[0], price]);
+        onFilterChange(selectedPriceFilters);
+    };
+
+    React.useEffect(() => {
+        onFilterChange(selectedPriceFilters);
+    }, [selectedPriceFilters]);
+
+    return (
+        <Popover>
+        <PopoverTrigger asChild>
+            <Button id="priceFilter" variant="outline">
+                <LuDollarSign className="mr-0.5" />Price<FaAngleDown className="ml-1" />
+            </Button>
+        </PopoverTrigger>
+        <PopoverContent className="w-42">
+            <div className="grid gap-4">
+                <div className="grid gap-2">
+                    <div className="flex items-center gap-4">
+                        <Label htmlFor="minPrice">Min. Price</Label>
+                        <Input
+                            id="minPrice"
+                            defaultValue={selectedPriceFilters[0]}
+                            type="number"
+                            className="col-span-2 h-8 w-16 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            onChange={(e) =>handleMinPriceChange(Number(e.target.value))}
+                        />
+                    </div>
+                    <div className="flex items-center gap-4">
+                        <Label htmlFor="maxPrice">Max Price</Label>
+                        <Input
+                            id="maxPrice"
+                            defaultValue={selectedPriceFilters[1]}
+                            type="number"
+                            className="col-span-2 h-8 w-16 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                            onChange={(e) => handleMaxPriceChange(Number(e.target.value))}
+                        />
+                    </div>
+                </div>
+            </div>
+        </PopoverContent>
+        </Popover>
     )
 }
