@@ -31,7 +31,7 @@ export function InfoModal({data}: {data: ProductData}) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button id="productInfo" variant="secondary" className="hover:bg-slate-50 dark:hover:bg-slate-500">
+                <Button id={"productInfo" + data.sku} variant="secondary" className="hover:bg-slate-50 dark:hover:bg-slate-500">
                     View Info
                 </Button>
             </DialogTrigger>

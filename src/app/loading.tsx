@@ -26,7 +26,7 @@ export default function loading() {
                         Swoosh Spy
                     </h1>
                     <Separator orientation="vertical" className="h-[48px] flex bg-slate-500" style={{ marginLeft: '16px', marginRight: '16px' }} />
-                    <h6>Nike Product Tracker</h6>
+                    <h3>Nike Product Tracker</h3>
                 </div>
                 <div className="flex flex-col items-center">
                     <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">

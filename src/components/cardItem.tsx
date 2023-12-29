@@ -60,7 +60,7 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
     <Card className="flex flex-col justify-between">
       <CardHeader className="flex-row gap-4 pb-3 items-center">
         <Avatar className="h-14 w-14">
-          <AvatarImage src={product.imageURL} />
+          <AvatarImage src={product.imageURL} alt={product.title} />
           <AvatarFallback>?</AvatarFallback>
         </Avatar>
         <div>
@@ -70,7 +70,7 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
         <Button
           variant="ghost"
           className="text-slate-400 hover:bg-transparent hover:text-red-400 self-start ml-auto p-0 h-0"
-          id="deleteProduct"
+          id={"deleteProduct" + product.sku}
           onClick={() => {
             onDelete(product.sku);
             toast({
@@ -97,7 +97,7 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
       </CardContent>
       <CardFooter className="flex self-start ml-auto pl-4 pr-4 pt-4">
         <div>
-          <Button variant="outline" className="mx-2" id="nikeLink" asChild>
+          <Button variant="outline" className="mx-2" id={"nikeLink" + product.sku} asChild>
             <Link href={product.url} rel="noopener noreferrer" target="_blank">
               ${product.currentPrice}
             </Link>
