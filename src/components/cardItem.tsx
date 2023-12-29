@@ -71,6 +71,7 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
           variant="ghost"
           className="text-slate-400 hover:bg-transparent hover:text-red-400 self-start ml-auto p-0 h-0"
           id={"deleteProduct" + product.sku}
+          aria-label={"Delete " + product.sku}
           onClick={() => {
             onDelete(product.sku);
             toast({
