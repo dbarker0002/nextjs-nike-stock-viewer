@@ -12,7 +12,7 @@ import { BsCartCheck, BsQuestionCircle } from "react-icons/bs";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { RiComputerLine } from "react-icons/ri";
 import { FaAngleDown } from "react-icons/fa";
-import { GrCircleQuestion, GrDocumentDownload } from "react-icons/gr";
+import { GrDocumentDownload } from "react-icons/gr";
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { PiStudentFill } from "react-icons/pi";
@@ -23,6 +23,7 @@ import {
   AlertTitle,
 } from "@/components/ui/alert"
 import { StatusFilterDropdown, PlatformFilterDropdown, AvailabilityFilterDropdown, PriceFilterDropdown } from '@/components/filterDropdown';
+import { HelpModal } from './helpModal';
 
 
 
@@ -201,8 +202,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
                     <Button variant="outline" id="exportCsv" onClick={handleExportCSV}>
                         <GrDocumentDownload className="mr-1.5" />Export CSV</Button>
-                    <Button variant="outline" id="helpButton" className="pl-3.5">
-                        <GrCircleQuestion className="mr-1" size="16px"/>Help</Button>
+                    <HelpModal />
                     <DarkToggle />
                 </div>
             </div>
