@@ -10,6 +10,7 @@ import { MagicWandIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
 import { FaProductHunt, FaShoppingBag, FaShoppingCart } from "react-icons/fa"
 import { PiShoppingCartLight, PiSneaker } from "react-icons/pi"
 import { HiShoppingCart } from "react-icons/hi"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -59,33 +60,30 @@ export default function Home() {
               <Button className="shadow-lg" asChild>
                 <Link href="/dashboard">Get started for free</Link>
                 </Button>
-              <img
+              <Image
                 alt="Product screenshot"
                 // className="w-full"
-                src="hero.png"
+                src="/hero.png"
                 style={{
-                //   aspectRatio: "500/500",
                   objectFit: "cover",
                 }}
                 width="1250"
-                // height="00"
+                height="793"
               />
-              
             </div>
           </div>
         </section>
         <h4 id="features" className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to view and organize your products</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
-              <img
+              <Image
                 alt="Product screenshot"
-                // className=""
-                src="card.png"
+                // className="w-full"
+                src="/card.png"
                 style={{
-                    aspectRatio: "350/400",
-                    objectFit: "contain",
+                  objectFit: "cover",
                 }}
-                width="350"
+                width="400"
                 height="400"
               />
             </div>
@@ -111,15 +109,15 @@ export default function Home() {
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 border-4 border-gray-100 dark:border-gray-800">
-              <img
+              <Image
                 alt="Product screenshot"
-                className=""
-                src="card.png"
+                // className="w-full"
+                src="/card.png"
                 style={{
-                  objectFit: "contain",
+                  objectFit: "cover",
                 }}
-                width="350"
-                height="470"
+                width="400"
+                height="400"
               />
         </div>
         <div id="faq" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
@@ -128,18 +126,17 @@ export default function Home() {
                 <div className="mt-12 gap-6 flex justify-center">
                 <Accordion type="single" collapsible className="w-full md:w-3/4">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>Can I view products that aren't on Nike's site anymore?</AccordionTrigger>
+                        <AccordionTrigger>Can I view products that aren&#39;t on Nike&#39;s site anymore?</AccordionTrigger>
                         <AccordionContent>
                         Yes! Swoosh Spy uses data directly from the Nike US product channel, which also stores products that you can no longer buy.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>What's the point in tracking sold out products?</AccordionTrigger>
+                        <AccordionTrigger>What&#39;s the point in tracking sold out products?</AccordionTrigger>
                         <AccordionContent>
                         Although some products may be sold out, they still have stock available that could be released at any point. Historically, Nike has made previously unavailable items available again. Viewing these products allows you to know which items still have sizes in stock.
                         </AccordionContent>
                     </AccordionItem>
-                    
                     <AccordionItem value="item-3">
                         <AccordionTrigger>What do the Active, Closeout, and Hold statuses on products mean?</AccordionTrigger>
                         <AccordionContent>
@@ -151,7 +148,7 @@ export default function Home() {
                     <AccordionItem value="item-4">
                         <AccordionTrigger>What info do I need to track a product?</AccordionTrigger>
                         <AccordionContent>
-                        All you need is the item's Nike SKU or product link. Nike SKUs will be in XXXXXX-XXX format.
+                        All you need is the item&#39;s Nike SKU or product link. Nike SKUs will be in XXXXXX-XXX format.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-5">
@@ -171,32 +168,28 @@ export default function Home() {
                 </div>
             </div>
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
-              <img
+              <Image
                 alt="Product screenshot"
                 // className="w-full"
-                src="item.png"
+                src="/item.png"
                 style={{
-                //   aspectRatio: "500/500",
-
-                  objectFit: "contain",
+                  objectFit: "cover",
                 }}
-                // width="200"
-                // height="00"
+                width="425"
+                height="450"
               />
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-4 mx-4">
-              <img
+              <Image
                 alt="Product screenshot"
                 // className="w-full"
-                src="item.png"
+                src="/item.png"
                 style={{
-                //   aspectRatio: "500/500",
-
-                  objectFit: "contain",
+                  objectFit: "cover",
                 }}
-                // width="200"
-                // height="00"
+                width="425"
+                height="450"
               />
             </div>
         <footer className="flex flex-col items-center justify-center w-full h-12 mt-24 font-light text-sm">
