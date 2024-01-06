@@ -10,7 +10,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-        <header className="container px-4 mx-auto h-16 flex items-center justify-between gap-6 w-full">
+        <header className="container px-4 mx-auto h-16 flex items-center justify-between w-full">
             <div className="flex items-center justify-start gap-6">
                 <Link className="flex items-center justify-center text-xl font-bold" href="#">
                 Swoosh Spy
@@ -36,7 +36,7 @@ export default function Home() {
                 </Button>
             </div>
         </header>
-      <main className="flex-1">
+      <main className="flex-1 mt-8">
         <section className="w-full">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-8 text-center">
@@ -68,7 +68,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <h4 className="text-3xl font-medium flex justify-center text-center items-center pb-4 pt-12">Helpful features to manage your products</h4>
+        <h4 className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to manage your products</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
               <img
