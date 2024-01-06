@@ -202,7 +202,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <Input
                         id="search"
                         placeholder="Search Products"
-                        className="focus:ring-0 xl:w-96 lg:w-64 w-56"
+                        className="focus:ring-0 xl:w-96 lg:w-64 w-48"
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />
