@@ -42,7 +42,7 @@ export default function Home() {
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium">Placeholder for some sort of announcement!</span>
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Keep track of any Nike product, whether it's in stock or not.
+                  Keep track of any Nike product, whether it&#39;s in stock or not.
                 </h1>
                 <p className="mx-auto text-gray-500 md:text-2xl sm:text-xl lg:text-3xl dark:text-gray-400">
                   Any items, live data, beautifully visualized.
