@@ -189,7 +189,7 @@ export function PriceFilterDropdown({ onFilterChange }: { onFilterChange: (filte
     return (
         <Popover>
         <PopoverTrigger asChild>
-            <Button id="priceFilter" variant="outline">
+            <Button id="priceFilter" variant="outline" className="hidden md:flex">
                 <LuDollarSign className="mr-0.5" />Price<FaAngleDown className="ml-1" />
             </Button>
         </PopoverTrigger>

@@ -9,49 +9,60 @@ import { CardHeader, CardContent, Card } from "@/components/ui/card"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="px-4 lg:px-6 h-16 flex items-center">
-        <Link className="flex items-center justify-center" href="#">
-          <MountainIcon className="h-6 w-6" />
-          <span className="sr-only">SaaS Inc</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Features
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Pricing
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            FAQ
-          </Link>
-        </nav>
-      </header>
+        <header className="px-4 mx-auto h-16 flex items-center justify-between gap-6 w-full md:w-3/4">
+            <div className="flex items-center justify-start gap-6">
+                <Link className="flex items-center justify-center text-xl font-bold" href="#">
+                Swoosh Spy
+                </Link>
+                <nav className="ml-4 hidden md:flex gap-4 sm:gap-6">
+                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#features">
+                        Features
+                    </Link>
+                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#faq">
+                        FAQ
+                    </Link>
+                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#">
+                        Contact
+                    </Link>
+                </nav>
+            </div>
+            <div className="space-x-2">
+                <Button className="" asChild>
+                <Link href="/dashboard">Sign Up</Link>
+                </Button>
+                <Button variant="outline"className="" asChild>
+                <Link href="/dashboard">Log In</Link>
+                </Button>
+            </div>
+        </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+        <section className="w-full">
           <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Welcome to SaaS Inc
+            <div className="flex flex-col items-center space-y-8 text-center">
+            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium">Placeholder for some sort of announcement!</span>
+              <div className="space-y-4">
+                <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Keep track of any Nike product, whether it's in stock or not.
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                  We provide the best software solutions for your business. Reliable. Efficient. Scalable.
+                <p className="mx-auto text-gray-500 md:text-2xl sm:text-xl lg:text-3xl dark:text-gray-400">
+                  Any items, live data, beautifully visualized.
                 </p>
               </div>
+              <Button className="" asChild>
+                <Link href="/dashboard">Get started for free</Link>
+                </Button>
               <img
                 alt="Product screenshot"
-                className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3"
-                height="500"
-                src="/placeholder.svg"
+                // className="w-full"
+                src="hero.png"
                 style={{
-                  aspectRatio: "500/500",
+                //   aspectRatio: "500/500",
                   objectFit: "cover",
                 }}
-                width="500"
+                width="1250"
+                // height="00"
               />
-              <Button className="mt-4" asChild>
-                <Link href="/dashboard">Dashboard</Link>
-                </Button>
+              
             </div>
           </div>
         </section>

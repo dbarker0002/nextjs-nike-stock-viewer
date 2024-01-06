@@ -13,14 +13,14 @@ import {
 import { Input } from "@/components/ui/input"
 import { IoMdAdd } from "react-icons/io";
  
-export function AddModal({onAdd}: {onAdd:Function}) {
+export function AddModal({onAdd, className}: {onAdd:Function, className?:string}) {
     const [inputValue, setInputValue] = useState("");
 
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" id="addProducts" onClick={() => setInputValue("")}><IoMdAdd className="mr-1"/>Add Products</Button>
+        <Button variant="outline" id="addProducts" className={className} onClick={() => setInputValue("")}><IoMdAdd className="mr-1"/>Add Products</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>

@@ -143,7 +143,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <h3 className="flex-shrink-0 font-extrabold" style={{ display: 'flex', alignItems: 'center' }}>
                         Swoosh Spy
                     </h3>
-                    <div>
+                    <div className="hidden md:block">
                     <HelpModal />
                     <HelpModal />
                     <HelpModal />
@@ -170,11 +170,11 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     </Avatar>
                 </div>
             </div>
-            <div className="mx-4 mb-5 mt-4 space-x-52 flex flex-wrap items-center justify-between">
-                <div className="flex items-center flex-wrap space-x-2">
+            <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-52 flex flex-wrap items-center justify-between">
+                <div className="flex items-center flex-wrap space-x-2 mr-2 2xl:mr-0">
                     <StatusFilterDropdown
                         button={
-                            <Button variant="outline" className="focus:ring-0" id="statusFilter">
+                            <Button variant="outline" className="focus:ring-0 hidden md:flex" id="statusFilter">
                                 <FaRegCheckCircle className="mr-1" />Status<FaAngleDown className="ml-1" />
                             </Button>
                         }
@@ -182,7 +182,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     ></StatusFilterDropdown>
                     <AvailabilityFilterDropdown
                         button={
-                            <Button variant="outline" className="focus:ring-0" id="availabilityFilter">
+                            <Button variant="outline" className="focus:ring-0 hidden md:flex" id="availabilityFilter">
                                 <BsCartCheck className="mr-1" />Availability<FaAngleDown className="ml-1" />
                             </Button>
                         }
@@ -190,7 +190,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     ></AvailabilityFilterDropdown>
                     <PlatformFilterDropdown
                         button={
-                            <Button variant="outline" className="focus:ring-0" id="platformFilter">
+                            <Button variant="outline" className="focus:ring-0 hidden md:flex" id="platformFilter">
                                 <RiComputerLine className="mr-1" />Platform<FaAngleDown className="ml-1" />
                             </Button>
                         }
@@ -198,19 +198,20 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     ></PlatformFilterDropdown>
                     <PriceFilterDropdown onFilterChange={handlePriceFilterChange}>
                     </PriceFilterDropdown>
+                    <AddModal className="flex md:hidden" onAdd={handleAddCard}></AddModal>
                     <Input
                         id="search"
                         placeholder="Search Products"
-                        className="focus:ring-0 xl:w-96 lg:w-64 md:w-48 sm:w-32"
+                        className="focus:ring-0 xl:w-96 lg:w-64 w-56"
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />
                 </div>
                 <div className="flex space-x-2 ml-auto flex-wrap">
-                    <AddModal onAdd={handleAddCard}></AddModal>
-                    <Button variant="outline" id="refreshProducts" onClick={() => handleRefresh() }>
+                    <AddModal className="hidden md:flex" onAdd={handleAddCard}></AddModal>
+                    <Button variant="outline" id="refreshProducts" className="hidden md:flex" onClick={() => handleRefresh() }>
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
-                    <Button variant="outline" id="exportCsv" onClick={handleExportCSV}>
+                    <Button variant="outline" id="exportCsv" className="hidden md:flex" onClick={handleExportCSV}>
                         <GrDocumentDownload className="mr-1.5" />Export CSV</Button>
                     {/* <HelpModal />
                     <DarkToggle /> */}
