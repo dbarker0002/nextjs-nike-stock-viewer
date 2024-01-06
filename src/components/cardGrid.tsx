@@ -31,7 +31,7 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                         {products.map((item) => (
                             <CardItem key={item.sku} product={item} onDelete={onDelete}></CardItem>
                         ))}
-                        {Array.from({length: isAdding}, (_, index) => (
+                        {Array.from({length: 20}, (_, index) => (
                             <SkeletonCard key={index}></SkeletonCard>
                         ))}
                     </div>

@@ -74,6 +74,16 @@
 		@apply bg-background text-foreground;
 		zoom: 92.5%;
 	}
+	body::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.hr-full-width {
+	width: 120vw;
+	transform: translateX(-5%);
+	margin-left: calc(-50vw + 45%);
+	margin-right: calc(-50vw + 50%);
 }
 
 main,

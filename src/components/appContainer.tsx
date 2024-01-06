@@ -14,6 +14,7 @@ import { RiComputerLine } from "react-icons/ri";
 import { FaAngleDown } from "react-icons/fa";
 import { GrDocumentDownload } from "react-icons/gr";
 import { Input } from "@/components/ui/input"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Separator } from "@/components/ui/separator"
 import { PiStudentFill } from "react-icons/pi";
 import { LuDollarSign } from "react-icons/lu";
@@ -135,17 +136,22 @@ export default function AppContainer({products}: {products:ProductData[]}) {
     }
 
     return (
-        <div className="w-full">
+        <div className="w-full min-h-screen">
+            <div className="fixed top-0 z-10 mt-0 bg-white">
             <div className="mx-4 my-4 space-x-1 flex flex-wrap items-center justify-between">
-                <div className="flex items-center">
-                    <h1 className="flex-shrink-0" style={{ display: 'flex', alignItems: 'center' }}>
+                <div className="flex space-x-8 items-baseline">
+                    <h3 className="flex-shrink-0 font-extrabold" style={{ display: 'flex', alignItems: 'center' }}>
                         Swoosh Spy
-                    </h1>
-                    <Separator orientation="vertical" className="h-[48px] flex bg-slate-500" style={{ marginLeft: '16px', marginRight: '16px' }} />
-                    <h3>Nike Product Tracker</h3>
+                    </h3>
+                    <div>
+                    <HelpModal />
+                    <HelpModal />
+                    <HelpModal />
+                    </div>
+                    {/* <DarkToggle /> */}
                 </div>
                 <div className="flex flex-col items-center">
-                    <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">
+                    {/* <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">
                         <PiStudentFill className="w-6 h-6 mt-2" />
                         <AlertTitle className="text-sm font-medium ml-2 mb-0 mt-0">Consider checking my work out below ↓</AlertTitle>
                         <AlertDescription>
@@ -157,10 +163,14 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                                 <Button variant="link" className="pl-2 pb-2 pr-0" id="github">View on GitHub</Button>
                             </div>
                         </AlertDescription>
-                    </Alert>
+                    </Alert> */}
+                    <Avatar className="h-12 w-12">
+                        <AvatarImage src={""} alt={""} />
+                        <AvatarFallback>?</AvatarFallback>
+                    </Avatar>
                 </div>
             </div>
-            <div className="mx-4 mb-5 mt-4 space-x-4 flex flex-wrap items-center justify-between">
+            <div className="mx-4 mb-5 mt-4 space-x-52 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2">
                     <StatusFilterDropdown
                         button={
@@ -191,7 +201,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <Input
                         id="search"
                         placeholder="Search Products"
-                        className="focus:ring-0 xl:w-80 lg:w-64 md:w-48 sm:w-32"
+                        className="focus:ring-0 xl:w-96 lg:w-64 md:w-48 sm:w-32"
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />
@@ -202,14 +212,17 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
                     <Button variant="outline" id="exportCsv" onClick={handleExportCSV}>
                         <GrDocumentDownload className="mr-1.5" />Export CSV</Button>
-                    <HelpModal />
-                    <DarkToggle />
+                    {/* <HelpModal />
+                    <DarkToggle /> */}
                 </div>
             </div>
             <div>
-                <hr className="pb-2 pt-0 mx-4"></hr>
+                <hr className="pb-0 pt-0 hr-full-width"></hr>
             </div>
-            <CardGrid products={filteredCards} onDelete={handleDelete} isLoading={isLoading} isAdding={isAdding}></CardGrid>
+            </div>
+            <div className="mt-28">
+                <CardGrid products={filteredCards} onDelete={handleDelete} isLoading={isLoading} isAdding={isAdding}></CardGrid>
+            </div>
         </div>
     );
 }

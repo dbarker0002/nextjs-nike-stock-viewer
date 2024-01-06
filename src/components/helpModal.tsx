@@ -25,8 +25,9 @@ export function HelpModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline" id="helpButton" className="pl-3.5">
-                        <GrCircleQuestion className="mr-1" size="16px"/>Help</Button>
+                <Button variant="ghost" id="helpButton" className="p-0 mx-2 font-normal text-lg text-slate-400 hover:bg-transparent">
+                        {/* <GrCircleQuestion className="mr-1" size="16px"/> */}
+                        Dashboard</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
