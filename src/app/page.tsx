@@ -40,7 +40,8 @@ export default function Home() {
         <section className="w-full">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-8 text-center">
-            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md">Swoosh Spy is free forever! Track any SKUs at no cost.</span>
+            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md hidden lg:flex">Swoosh Spy is free forever! Track unlimited SKUs at no cost.</span>
+            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md flex lg:hidden">Swoosh Spy is free forever! Track at no cost.</span>
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Keep track of any Nike product, whether it&#39;s in stock or not.
@@ -67,7 +68,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <h3 className="text-4xl font-medium flex justify-center text-center items-center pb-4 pt-12">Helpful features to manage your products</h3>
+        <h4 className="text-3xl font-medium flex justify-center text-center items-center pb-4 pt-12">Helpful features to manage your products</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
               <img
@@ -89,16 +90,16 @@ export default function Home() {
                         <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 1</CardHeader>
-                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                        <CardHeader>Feature 2</CardHeader>
+                        <CardContent>Description for feature 2. This is a long description. Description for feature 2. This is a long description. Description for feature 2. This is a long description.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 1</CardHeader>
-                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                        <CardHeader>Feature 3</CardHeader>
+                        <CardContent>Description for feature 3. This is a long description. Description for feature 3. This is a long description. Description for feature 3. This is a long description.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 1</CardHeader>
-                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                        <CardHeader>Feature 4</CardHeader>
+                        <CardContent>Description for feature 4. This is a long description. Description for feature 4. This is a long description. Description for feature 4. This is a long description.</CardContent>
                 </Card>
                 </div>
             </div>
