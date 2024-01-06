@@ -18,7 +18,7 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                 return (
                     <div>
                         <p className="flex justify-center">No products found. Try adding a new product or modifying the filters above.</p>
-                    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                    <div className="grid 2xl:grid-cols-4 w-full lg:w-10/12 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
                         {Array.from({length: 12}, (_, index) => (
                             <SkeletonCard key={index}></SkeletonCard>
                         ))}
@@ -27,7 +27,7 @@ export default function CardGrid({products, onDelete, isLoading, isAdding}:
                 )
             } else {
                 return (
-                    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
+                    <div className="grid 2xl:grid-cols-4 w-[92%] md:w-10/12 2xl:w-[97.75%] lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-6 gap-y-6 m-4">
                         {products.map((item) => (
                             <CardItem key={item.sku} product={item} onDelete={onDelete}></CardItem>
                         ))}
