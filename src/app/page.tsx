@@ -5,11 +5,12 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-        <header className="px-4 mx-auto h-16 flex items-center justify-between gap-6 w-full md:w-3/4">
+        <header className="container px-4 mx-auto h-16 flex items-center justify-between gap-6 w-full">
             <div className="flex items-center justify-start gap-6">
                 <Link className="flex items-center justify-center text-xl font-bold" href="#">
                 Swoosh Spy
@@ -39,16 +40,16 @@ export default function Home() {
         <section className="w-full">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-8 text-center">
-            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium">Placeholder for some sort of announcement!</span>
+            <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md">Swoosh Spy is free forever! Track any SKUs at no cost.</span>
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Keep track of any Nike product, whether it&#39;s in stock or not.
                 </h1>
                 <p className="mx-auto text-gray-500 md:text-2xl sm:text-xl lg:text-3xl dark:text-gray-400">
-                  Any items, live data, beautifully visualized.
+                  Any items. Live data. Beautifully visualized.
                 </p>
               </div>
-              <Button className="" asChild>
+              <Button className="shadow-lg" asChild>
                 <Link href="/dashboard">Get started for free</Link>
                 </Button>
               <img
@@ -66,40 +67,121 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-100 dark:bg-gray-800">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center">Features</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12">
-              <Card>
-                <CardHeader>Feature 1</CardHeader>
-                <CardContent>Description for Feature 1</CardContent>
-              </Card>
-              <Card>
-                <CardHeader>Feature 2</CardHeader>
-                <CardContent>Description for Feature 2</CardContent>
-              </Card>
-              <Card>
-                <CardHeader>Feature 3</CardHeader>
-                <CardContent>Description for Feature 3</CardContent>
-              </Card>
+        <h3 className="text-4xl font-medium flex justify-center text-center items-center pb-4 pt-12">Helpful features to manage your products</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
+            <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
+              <img
+                alt="Product screenshot"
+                // className=""
+                src="card.png"
+                style={{
+                    aspectRatio: "350/400",
+                    objectFit: "contain",
+                }}
+                width="350"
+                height="400"
+              />
             </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center">Frequently Asked Questions</h2>
-            <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <Card>
-                <CardHeader>Question 1</CardHeader>
-                <CardContent>Answer for Question 1.</CardContent>
-              </Card>
-              <Card>
-                <CardHeader>Question 2</CardHeader>
-                <CardContent>Answer for Question 2.</CardContent>
-              </Card>
+            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Card className="border-0 shadow-sm">
+                        <CardHeader>Feature 1</CardHeader>
+                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                </Card>
+                <Card className="border-0 shadow-sm">
+                        <CardHeader>Feature 1</CardHeader>
+                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                </Card>
+                <Card className="border-0 shadow-sm">
+                        <CardHeader>Feature 1</CardHeader>
+                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                </Card>
+                <Card className="border-0 shadow-sm">
+                        <CardHeader>Feature 1</CardHeader>
+                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                </Card>
+                </div>
             </div>
-          </div>
-        </section>
+        </div>
+        <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 border-4 border-gray-100 dark:border-gray-800">
+              <img
+                alt="Product screenshot"
+                className=""
+                src="card.png"
+                style={{
+                  objectFit: "contain",
+                }}
+                width="350"
+                height="470"
+              />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
+            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-12">
+                <h2 className="text-xl font-medium tracking-tighter sm:text-4xl text-center">Frequently Asked Questions</h2>
+                <div className="mt-12 gap-6 flex justify-center">
+                <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-3">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-4">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-5">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
+                </div>
+            </div>
+            <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
+              <img
+                alt="Product screenshot"
+                // className="w-full"
+                src="item.png"
+                style={{
+                //   aspectRatio: "500/500",
+
+                  objectFit: "contain",
+                }}
+                // width="200"
+                // height="00"
+              />
+            </div>
+        </div>
+        <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-4 mx-4">
+              <img
+                alt="Product screenshot"
+                // className="w-full"
+                src="item.png"
+                style={{
+                //   aspectRatio: "500/500",
+
+                  objectFit: "contain",
+                }}
+                // width="200"
+                // height="00"
+              />
+            </div>
       </main>
     </div>
   )
