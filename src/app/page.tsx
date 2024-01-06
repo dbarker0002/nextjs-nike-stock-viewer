@@ -44,7 +44,7 @@ export default function Home() {
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md flex lg:hidden">Swoosh Spy is free forever! Track at no cost.</span>
               <div className="space-y-4">
                 <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
-                  Keep track of any Nike product, whether it&#39;s in stock or not.
+                  Keep track of <span className="animate-pulse">any</span> Nike product, whether it&#39;s <span className="animate-pulse">in stock or not</span>.
                 </h1>
                 <p className="mx-auto text-gray-500 md:text-2xl sm:text-xl lg:text-3xl dark:text-gray-400">
                   Any items. Live data. Beautifully visualized.
@@ -118,9 +118,9 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-12">
-                <h2 className="text-xl font-medium tracking-tighter sm:text-4xl text-center">Frequently Asked Questions</h2>
+                <h4 className="font-medium tracking-tighter text-3xl text-center">Frequently Asked Questions</h4>
                 <div className="mt-12 gap-6 flex justify-center">
-                <Accordion type="single" collapsible className="w-full">
+                <Accordion type="single" collapsible className="w-3/4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
                         <AccordionContent>
@@ -146,6 +146,12 @@ export default function Home() {
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-5">
+                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionContent>
+                        This is a placeholder answer.
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-6">
                         <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
                         <AccordionContent>
                         This is a placeholder answer.
