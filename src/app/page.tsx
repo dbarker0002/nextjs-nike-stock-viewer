@@ -6,13 +6,17 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { MagicWandIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
+import { FaProductHunt, FaShoppingBag, FaShoppingCart } from "react-icons/fa"
+import { PiShoppingCartLight, PiSneaker } from "react-icons/pi"
+import { HiShoppingCart } from "react-icons/hi"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
         <header className="container px-4 mx-auto h-16 flex items-center justify-between w-full">
             <div className="flex items-center justify-start gap-6">
-                <Link className="flex items-center justify-center text-xl font-bold" href="#">
+                <Link className="flex items-center justify-center text-xl font-bold" href="">
                 Swoosh Spy
                 </Link>
                 <nav className="ml-4 hidden md:flex gap-4 sm:gap-6">
@@ -22,8 +26,8 @@ export default function Home() {
                     <Link className="text-md font-normal hover:underline underline-offset-4" href="#faq">
                         FAQ
                     </Link>
-                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#">
-                        Contact
+                    <Link className="text-md font-normal hover:underline underline-offset-4" href="dashboard">
+                        Dashboard
                     </Link>
                 </nav>
             </div>
@@ -70,7 +74,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <h4 className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to manage your products</h4>
+        <h4 id="features" className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to view and organize your products</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
               <img
@@ -88,20 +92,20 @@ export default function Home() {
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 1</CardHeader>
-                        <CardContent>Description for Feature 1. This is a long description. Description for Feature 1. This is a long description. Description for Feature 1. This is a long description.</CardContent>
+                        <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>View stock info for any Nike products</span></CardHeader>
+                        <CardContent>View data for any product, even if it is no longer in stock. Track previously released products to see what stock is left!</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 2</CardHeader>
-                        <CardContent>Description for feature 2. This is a long description. Description for feature 2. This is a long description. Description for feature 2. This is a long description.</CardContent>
+                        <CardHeader><span className="font-medium flex items-center"><PiShoppingCartLight className="w-5 h-5 mr-2"/>Get in-depth product info</span></CardHeader>
+                        <CardContent>View specific information about any product, such as current availability status, quantity limits, and release platform.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 3</CardHeader>
-                        <CardContent>Description for feature 3. This is a long description. Description for feature 3. This is a long description. Description for feature 3. This is a long description.</CardContent>
+                        <CardHeader><span className="font-medium flex items-center"><PiSneaker className="w-5 h-5 mr-2"/>See which sizes are running low</span></CardHeader>
+                        <CardContent>View which sizes have high, medium, and low stock numbers available. See when specific sizes are almost sold out.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
-                        <CardHeader>Feature 4</CardHeader>
-                        <CardContent>Description for feature 4. This is a long description. Description for feature 4. This is a long description. Description for feature 4. This is a long description.</CardContent>
+                        <CardHeader><span className="font-medium flex items-center"><MagnifyingGlassIcon className="w-5 h-5 mr-2"/>Filter and export data</span></CardHeader>
+                        <CardContent>Filter and search products by name, price, availability, status, or platform. Export saved products to spreadsheets for offline storage.</CardContent>
                 </Card>
                 </div>
             </div>
@@ -118,45 +122,49 @@ export default function Home() {
                 height="470"
               />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
+        <div id="faq" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-12">
                 <h4 className="font-medium tracking-tighter text-3xl text-center">Frequently Asked Questions</h4>
                 <div className="mt-12 gap-6 flex justify-center">
                 <Accordion type="single" collapsible className="w-full md:w-3/4">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>Can I view products that aren't on Nike's site anymore?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        Yes! Swoosh Spy uses data directly from the Nike US product channel, which also stores products that you can no longer buy.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>What's the point in tracking sold out products?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        Although some products may be sold out, they still have stock available that could be released at any point. Historically, Nike has made previously unavailable items available again. Viewing these products allows you to know which items still have sizes in stock.
                         </AccordionContent>
                     </AccordionItem>
+                    
                     <AccordionItem value="item-3">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>What do the Active, Closeout, and Hold statuses on products mean?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        Active products are available for purchase. Closeout products are associated with final sale or outlet items
+                        and may or may not be available for purchase. Hold products are not currently available for purchase, even
+                        though there may be stock available.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-4">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>What info do I need to track a product?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        All you need is the item's Nike SKU or product link. Nike SKUs will be in XXXXXX-XXX format.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-5">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>What regions can I track products from?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        Swoosh Spy uses data from the Nike US product channel. Data from other regions will not be reflected.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-6">
-                        <AccordionTrigger>This is a placeholder question?</AccordionTrigger>
+                        <AccordionTrigger>What if I click a product link and no product is found?</AccordionTrigger>
                         <AccordionContent>
-                        This is a placeholder answer.
+                        Some older products no longer have pages available on Nike.com or Nike SNKRS. You can still view 
+                        the live data and stock levels for the product on Swoosh Spy.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
@@ -191,6 +199,10 @@ export default function Home() {
                 // height="00"
               />
             </div>
+        <footer className="flex flex-col items-center justify-center w-full h-12 mt-24 font-light text-sm">
+            <p>Made with ♡ by Destin</p>
+            <p>Contact me: <a href="mailto:dbarker0002@gmail.com">dbarker0002@gmail.com</a></p>
+        </footer>
       </main>
     </div>
   )
