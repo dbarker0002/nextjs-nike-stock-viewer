@@ -83,14 +83,14 @@ export default function Home() {
                 style={{
                   objectFit: "cover",
                 }}
-                width="400"
+                width="370"
                 height="400"
               />
             </div>
-            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-8">
+            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 py-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="border-0 shadow-sm">
-                        <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>View stock info for any Nike products</span></CardHeader>
+                        <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>View stock info for any Nike product</span></CardHeader>
                         <CardContent>View data for any product, even if it is no longer in stock. Track previously released products to see what stock is left!</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
@@ -108,7 +108,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-        <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 border-4 border-gray-100 dark:border-gray-800">
+        <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 p-4 border-4 border-gray-100 dark:border-gray-800">
               <Image
                 alt="Product screenshot"
                 // className="w-full"
@@ -116,7 +116,7 @@ export default function Home() {
                 style={{
                   objectFit: "cover",
                 }}
-                width="400"
+                width="380"
                 height="400"
               />
         </div>
