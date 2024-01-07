@@ -143,7 +143,7 @@ export default function Home() {
               <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
               </div>
             </div>
-            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 py-6">
+            <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 md:px-8 py-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="border-0 shadow-sm hidden md:block">
                         <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>View stock info for any Nike product</span></CardHeader>
@@ -232,8 +232,8 @@ export default function Home() {
               <SampleInfoModal data={item}></SampleInfoModal>
             </div>
         </div>
-        <footer className="flex flex-col items-center justify-center w-full h-12 mt-24 font-light text-sm">
-            <p>Built with ♡ by Destin</p>
+        <footer className="flex flex-col items-center justify-center text-center h-12 mx-16 mt-24 font-light text-sm">
+            <p>A learning project by Destin Barker. All product imagery property of Nike.</p>
             <p>Contact me: <a href="mailto:dbarker0002@gmail.com">dbarker0002@gmail.com</a></p>
         </footer>
       </main>
