@@ -20,11 +20,6 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
 
     const { toast } = useToast()
 
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setIsLoading(false);
-    })
     const renderStatusBadge = (status: string, text: string, color: string, darkColor: string) => {
         return (
         product.status === status && (
@@ -104,6 +99,78 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
             </Link>
           </Button>
           <InfoModal data={product}></InfoModal>
+        </div>
+      </CardFooter>
+    </Card>
+  );
+}
+
+export function SampleCardItem({ product, className }: { product: ProductData, className?: string }) {
+    const renderStatusBadge = (status: string, text: string, color: string, darkColor: string) => {
+        return (
+        product.status === status && (
+            <Badge variant="outline" className={`px-1.5 mx-0.5 ${color} ${darkColor} mb-3`}>
+            {text}
+            </Badge>
+        )
+        );
+    };
+
+    const renderPublishTypeBadge = () => {
+        const text = product.publishType === 'LAUNCH' ? 'SNKRS Launch' : 'Nike.com';
+        return (
+        <Badge variant="outline" className="px-1.5 mx-0.5 mb-3">
+            {text}
+        </Badge>
+        );
+    };
+
+    const renderSizeBadges = () => {
+        return (
+        <div>
+            {product.sizes.map((size: Size) => (
+            <Badge key={size.code} variant="outline" className="px-1.5 mx-0.5 bg-gray-50 dark:bg-slate-800">
+                {size.code}
+            </Badge>
+            ))}
+        </div>
+        );
+    };
+
+  return (
+    <Card className={className}>
+      <CardHeader className="flex-row gap-4 pb-3 items-center">
+        <Avatar className="h-14 w-14">
+          <AvatarImage src="/dunk.jpg" alt={product.title} />
+          <AvatarFallback>?</AvatarFallback>
+        </Avatar>
+        <div>
+          <CardTitle className="pt">{product.title}</CardTitle>
+          <CardDescription className="pt-0">{product.colorway}</CardDescription>
+        </div>
+        
+      </CardHeader>
+      <CardContent className="gap 4 pl-5 pr-5 pb-2">
+        <div>
+          {renderStatusBadge('ACTIVE', 'Active', 'bg-green-100', 'dark:bg-green-700')}
+          {renderStatusBadge('HOLD', 'Hold','bg-red-100', 'dark:bg-red-700')}
+          {renderStatusBadge('CLOSEOUT', 'Closeout', 'bg-amber-100', 'dark:bg-amber-500')}
+          {renderPublishTypeBadge()}
+          <Badge variant="outline" className="px-1.5 mx-0.5 mb-3">
+            Quantity Limit {product.maxQty}
+          </Badge>
+        </div>
+        <hr className="pb-2 pt-0"></hr>
+        {renderSizeBadges()}
+      </CardContent>
+      <CardFooter className="flex self-start ml-auto pl-4 pr-4 pt-4">
+        <div>
+          <Button variant="outline" className="mx-2" id={"nikeLink" + product.sku}>
+            ${product.currentPrice}
+          </Button>
+          <Button id={"productInfo"} variant="secondary" className="hover:bg-slate-50 dark:hover:bg-slate-500">
+                View Info
+            </Button>
         </div>
       </CardFooter>
     </Card>

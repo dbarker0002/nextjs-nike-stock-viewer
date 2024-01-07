@@ -11,8 +11,69 @@ import { FaProductHunt, FaShoppingBag, FaShoppingCart } from "react-icons/fa"
 import { PiShoppingCartLight, PiSneaker } from "react-icons/pi"
 import { HiShoppingCart } from "react-icons/hi"
 import Image from "next/image"
+import { SampleCardItem } from "@/components/cardItem"
+import { SampleInfoModal } from "@/components/infoModal"
 
 export default function Home() {
+    let item = {
+    "sku": "DD1391-100",
+    "title": "Nike Dunk Low Retro",
+    "colorway": "White/White/Black",
+    "maxQty": "1",
+    "currentPrice": 115,
+    "status": "ACTIVE",
+    "publishType": "FLOW",
+    "sizes": [{
+        "code": "6",
+        "availability": "LOW"
+    }, {
+        "code": "7",
+        "availability": "LOW"
+    }, {
+        "code": "8",
+        "availability": "HIGH"
+    }, {
+        "code": "8.5",
+        "availability": "HIGH"
+    }, {
+        "code": "9",
+        "availability": "HIGH"
+    }, {
+        "code": "9.5",
+        "availability": "HIGH"
+    }, {
+        "code": "10",
+        "availability": "HIGH"
+    }, {
+        "code": "10.5",
+        "availability": "HIGH"
+    }, {
+        "code": "11",
+        "availability": "HIGH"
+    }, {
+        "code": "11.5",
+        "availability": "HIGH"
+    }, {
+        "code": "12",
+        "availability": "HIGH"
+    }, {
+        "code": "12.5",
+        "availability": "LOW"
+    }, {
+        "code": "13",
+        "availability": "HIGH"
+    }, {
+        "code": "14",
+        "availability": "HIGH"
+    }, {
+        "code": "15",
+        "availability": "HIGH"
+    }],
+    "imageURL": "https://secure-images.nike.com/is/image/DotCom/DD1391_100",
+    "exclusive": false,
+    "url": "https://www.nike.com/t/p/DD1391-100"
+}
+
   return (
     <div className="flex flex-col min-h-screen">
         <header className="container px-4 mx-auto h-16 flex items-center justify-between w-full">
@@ -33,11 +94,11 @@ export default function Home() {
                 </nav>
             </div>
             <div className="space-x-2">
-                <Button className="" asChild>
-                <Link href="/dashboard">Sign Up</Link>
-                </Button>
                 <Button variant="outline"className="" asChild>
                 <Link href="/dashboard">Log In</Link>
+                </Button>
+                <Button className="" asChild>
+                <Link href="/dashboard">Sign Up</Link>
                 </Button>
             </div>
         </header>
@@ -51,7 +112,7 @@ export default function Home() {
                 <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none">
                   Keep track of any Nike product, whether it&#39;s 
                   <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-pulse"> in stock </span>
-                or <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent animate-pulse">not.</span>
+                or <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent animate-pulse">not</span>.
                 </h1>
                 <p className="mx-auto text-gray-500 md:text-2xl sm:text-xl lg:text-3xl dark:text-gray-400">
                   Any items. Live data. Beautifully visualized.
@@ -64,6 +125,7 @@ export default function Home() {
                 alt="Product screenshot"
                 // className="w-full"
                 src="/hero.png"
+                priority={true}
                 style={{
                   objectFit: "cover",
                 }}
@@ -76,16 +138,10 @@ export default function Home() {
         <h4 id="features" className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to view and organize your products</h4>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
-              <Image
-                alt="Product screenshot"
-                // className="w-full"
-                src="/card.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="370"
-                height="400"
-              />
+              <div className="flex flex-col items-center">
+              <h2 className="text-2xl font-normal text-center">Product info beautifully visualized</h2>
+              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
+              </div>
             </div>
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 py-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -109,16 +165,7 @@ export default function Home() {
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 p-4 border-4 border-gray-100 dark:border-gray-800">
-              <Image
-                alt="Product screenshot"
-                // className="w-full"
-                src="/card.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="380"
-                height="400"
-              />
+              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
         </div>
         <div id="faq" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-12">
@@ -167,33 +214,15 @@ export default function Home() {
                 </Accordion>
                 </div>
             </div>
-            <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
-              <Image
-                alt="Product screenshot"
-                // className="w-full"
-                src="/item.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="425"
-                height="450"
-              />
+            <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-0 mt-0">
+              <SampleInfoModal data={item}></SampleInfoModal>
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-4 mx-4">
-              <Image
-                alt="Product screenshot"
-                // className="w-full"
-                src="/item.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="425"
-                height="450"
-              />
+              <SampleInfoModal data={item}></SampleInfoModal>
             </div>
         <footer className="flex flex-col items-center justify-center w-full h-12 mt-24 font-light text-sm">
-            <p>Made with ♡ by Destin</p>
+            <p>Built with ♡ by Destin</p>
             <p>Contact me: <a href="mailto:dbarker0002@gmail.com">dbarker0002@gmail.com</a></p>
         </footer>
       </main>
