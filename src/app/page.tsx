@@ -145,16 +145,24 @@ export default function Home() {
             </div>
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 py-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-sm hidden md:block">
                         <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>View stock info for any Nike product</span></CardHeader>
+                        <CardContent>View data for any product, even if it is no longer in stock. Track previously released products to see what stock is left!</CardContent>
+                </Card>
+                <Card className="border-0 shadow-sm block md:hidden">
+                        <CardHeader><span className="font-medium flex items-center"><MagicWandIcon className="w-5 h-5 mr-2"/>Stock info for any Nike item</span></CardHeader>
                         <CardContent>View data for any product, even if it is no longer in stock. Track previously released products to see what stock is left!</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
                         <CardHeader><span className="font-medium flex items-center"><PiShoppingCartLight className="w-5 h-5 mr-2"/>Get in-depth product info</span></CardHeader>
                         <CardContent>View specific information about any product, such as current availability status, quantity limits, and release platform.</CardContent>
                 </Card>
-                <Card className="border-0 shadow-sm">
+                <Card className="border-0 shadow-sm hidden md:block">
                         <CardHeader><span className="font-medium flex items-center"><PiSneaker className="w-5 h-5 mr-2"/>See which sizes are running low</span></CardHeader>
+                        <CardContent>View which sizes have high, medium, and low stock numbers available. See when specific sizes are almost sold out.</CardContent>
+                </Card>
+                <Card className="border-0 shadow-sm block md:hidden">
+                        <CardHeader><span className="font-medium flex items-center"><PiSneaker className="w-5 h-5 mr-2"/>See which sizes have stock </span></CardHeader>
                         <CardContent>View which sizes have high, medium, and low stock numbers available. See when specific sizes are almost sold out.</CardContent>
                 </Card>
                 <Card className="border-0 shadow-sm">
@@ -165,7 +173,7 @@ export default function Home() {
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 p-4 border-4 border-gray-100 dark:border-gray-800">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center mt-4">
               <h2 className="text-xl font-normal text-center">Beautifully visualized products</h2>
               <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
               </div>
