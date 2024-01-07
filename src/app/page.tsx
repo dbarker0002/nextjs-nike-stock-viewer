@@ -139,7 +139,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
               <div className="flex flex-col items-center">
-              <h2 className="text-2xl font-normal text-center">Product info beautifully visualized</h2>
+              <h2 className="text-2xl font-normal text-center">Beautifully visualized product info</h2>
               <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
               </div>
             </div>
@@ -165,8 +165,14 @@ export default function Home() {
             </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 p-4 border-4 border-gray-100 dark:border-gray-800">
+              <div className="flex flex-col items-center">
+              <h2 className="text-xl font-normal text-center">Beautifully visualized products</h2>
               <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
+              </div>
         </div>
+        <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-0 m-6 mx-4">
+              <SampleInfoModal data={item}></SampleInfoModal>
+            </div>
         <div id="faq" className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6">
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 p-12">
                 <h4 className="font-medium tracking-tighter text-3xl text-center">Frequently Asked Questions</h4>
@@ -218,9 +224,6 @@ export default function Home() {
               <SampleInfoModal data={item}></SampleInfoModal>
             </div>
         </div>
-        <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-4 mt-4 mx-4">
-              <SampleInfoModal data={item}></SampleInfoModal>
-            </div>
         <footer className="flex flex-col items-center justify-center w-full h-12 mt-24 font-light text-sm">
             <p>Built with ♡ by Destin</p>
             <p>Contact me: <a href="mailto:dbarker0002@gmail.com">dbarker0002@gmail.com</a></p>
