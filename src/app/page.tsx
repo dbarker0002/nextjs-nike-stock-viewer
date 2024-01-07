@@ -109,7 +109,7 @@ export default function Home() {
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md hidden lg:flex">Swoosh Spy is free forever! Track unlimited SKUs at no cost.</span>
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md flex lg:hidden">Swoosh Spy is free forever! Track at no cost.</span>
               <div className="space-y-4">
-                <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none px-8 md:px-0">
+                <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none px-6 md:px-0">
                   Keep track of any Nike product, whether it&#39;s 
                   <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-pulse"> in stock </span>
                 or <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent animate-pulse">not</span>.
