@@ -102,7 +102,7 @@ export default function Home() {
                 </Button>
             </div>
         </header>
-      <main className="flex-1 mt-8">
+      <main className="flex-1 mt-2 md:mt-12">
         <section className="w-full">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-8 text-center">
