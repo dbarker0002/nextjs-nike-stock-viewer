@@ -25,6 +25,8 @@ import {
 } from "@/components/ui/alert"
 import { StatusFilterDropdown, PlatformFilterDropdown, AvailabilityFilterDropdown, PriceFilterDropdown } from '@/components/filterDropdown';
 import { HelpModal } from './helpModal';
+import Link from 'next/link';
+import { SettingsModal } from './settingsModal';
 
 
 
@@ -137,18 +139,22 @@ export default function AppContainer({products}: {products:ProductData[]}) {
 
     return (
         <div className="w-full min-h-screen">
-            <div className="fixed top-0 z-10 mt-0 bg-white">
+            <div className="fixed top-0 z-10 mt-0 bg-white dark:bg-[#020817]">
             <div className="mx-4 my-4 space-x-1 flex flex-wrap items-center justify-between">
                 <div className="flex space-x-8 items-baseline">
-                    <h3 className="flex-shrink-0 font-extrabold" style={{ display: 'flex', alignItems: 'center' }}>
-                        Swoosh Spy
-                    </h3>
+                    <Link className="flex items-center justify-center flex-shrink-0 font-extrabold" href="/">
+                        <h3>Swoosh Spy</h3>
+                    </Link>
                     <div className="hidden md:block">
+                    <Button variant="ghost" id="helpButton" className="p-0 mx-2 font-normal text-lg text-slate-400 hover:bg-transparent" asChild>
+                        {/* <GrCircleQuestion className="mr-1" size="16px"/> */}
+                        <Link href="/dashboard">
+                            Dashboard
+                        </Link>
+                    </Button>
                     <HelpModal />
-                    <HelpModal />
-                    <HelpModal />
+                    <SettingsModal />
                     </div>
-                    {/* <DarkToggle /> */}
                 </div>
                 <div className="flex flex-col items-center">
                     {/* <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">
@@ -198,7 +204,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     ></PlatformFilterDropdown>
                     <PriceFilterDropdown onFilterChange={handlePriceFilterChange}>
                     </PriceFilterDropdown>
-                    <AddModal className="flex md:hidden" onAdd={handleAddCard}></AddModal>
+                    <AddModal className="flex md:hidden" id="mobileAddButton" onAdd={handleAddCard}></AddModal>
                     <Input
                         id="search"
                         placeholder="Search Products"
@@ -208,7 +214,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     />
                 </div>
                 <div className="flex space-x-2 ml-auto flex-wrap">
-                    <AddModal className="hidden md:flex" onAdd={handleAddCard}></AddModal>
+                    <AddModal className="hidden md:flex" id="addButton" onAdd={handleAddCard}></AddModal>
                     <Button variant="outline" id="refreshProducts" className="hidden md:flex" onClick={() => handleRefresh() }>
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
                     <Button variant="outline" id="exportCsv" className="hidden md:flex" onClick={handleExportCSV}>
