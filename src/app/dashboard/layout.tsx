@@ -8,7 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Swoosh Spy',
+  title: 'Swoosh Spy Dashboard',
   description: 'Nike Product Tracker',
 }
 

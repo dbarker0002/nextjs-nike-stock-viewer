@@ -10,6 +10,20 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Swoosh Spy',
   description: 'Nike Product Tracker',
+  metadataBase: new URL("https://swooshspy.vercel.app"),
+  openGraph: {
+    title: "Swoosh Spy",
+    description: "Nike Product Tracker",
+    url: "Swoosh Spy",
+    siteName: "Swoosh Spy",
+    images: [{
+      url: "",
+      width: 800,
+      height: 600,
+    }],
+    locale: "en-US",
+    type: "website",
+  }
 }
 
 export default function RootLayout({
