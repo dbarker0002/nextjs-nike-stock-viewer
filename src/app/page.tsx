@@ -13,6 +13,7 @@ import { HiShoppingCart } from "react-icons/hi"
 import Image from "next/image"
 import { SampleCardItem } from "@/components/cardItem"
 import { SampleInfoModal } from "@/components/infoModal"
+import { DarkToggle } from "@/components/darkToggle"
 
 export default function Home() {
     let item = {
@@ -81,7 +82,7 @@ export default function Home() {
                 <Link className="flex items-center justify-center text-xl font-bold" href="">
                 Swoosh Spy
                 </Link>
-                <nav className="ml-4 hidden md:flex gap-4 sm:gap-6">
+                <nav className="ml-4 hidden md:flex gap-4 sm:gap-6 items-center">
                     <Link className="text-md font-normal hover:underline underline-offset-4" href="#features">
                         Features
                     </Link>
@@ -93,7 +94,8 @@ export default function Home() {
                     </Link>
                 </nav>
             </div>
-            <div className="space-x-2">
+            <div className="space-x-2 flex items-center">
+                <DarkToggle />
                 <Button variant="outline"className="" asChild>
                 <Link href="/dashboard">Log In</Link>
                 </Button>
@@ -135,12 +137,12 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <h4 id="features" className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to view and organize your products</h4>
+        <h2 id="features" className="text-3xl font-medium flex justify-center text-center items-center px-8 pb-4 pt-12">Helpful features to view and organize your products</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-6 py-6">
             <div className="col-span-1 hidden md:flex justify-center items-center rounded-xl py-0 border-4 border-gray-100 dark:border-gray-800 p-4 mt-0">
               <div className="flex flex-col items-center">
-              <h2 className="text-2xl font-normal text-center">Beautifully visualized product info</h2>
-              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
+              <h3 className="text-2xl font-normal text-center border-b pb-2">Beautifully visualized product info</h3>
+              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku + "Demo"} product={item} id="cardItem"></SampleCardItem>
               </div>
             </div>
             <div className="col-span-3 md:col-span-2 rounded-xl border-4 border-gray-100 dark:border-gray-800 px-4 md:px-8 py-6">
@@ -175,7 +177,7 @@ export default function Home() {
         <div className="flex md:hidden justify-center items-center rounded-xl m-4 mt-0 p-4 border-4 border-gray-100 dark:border-gray-800">
               <div className="flex flex-col items-center mt-4">
               <h2 className="text-xl font-normal text-center">Beautifully visualized products</h2>
-              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku} product={item}></SampleCardItem>
+              <SampleCardItem className="border-0 shadow-none flex flex-col justify-between" key={item.sku + "MobileDemo"} product={item} id="mobileCardItem"></SampleCardItem>
               </div>
         </div>
         <div className="flex md:hidden justify-center items-center rounded-xl border-4 border-gray-100 dark:border-gray-800 p-0 m-6 mx-4">

@@ -105,7 +105,7 @@ export default function CardItem({ product, onDelete }: { product: ProductData, 
   );
 }
 
-export function SampleCardItem({ product, className }: { product: ProductData, className?: string }) {
+export function SampleCardItem({ product, className, id }: { product: ProductData, className?: string, id: string }) {
     const renderStatusBadge = (status: string, text: string, color: string, darkColor: string) => {
         return (
         product.status === status && (
@@ -165,10 +165,10 @@ export function SampleCardItem({ product, className }: { product: ProductData, c
       </CardContent>
       <CardFooter className="flex self-start ml-auto pl-4 pr-4 pt-4">
         <div>
-          <Button variant="outline" className="mx-2" id={"nikeLink" + product.sku}>
+          <Button variant="outline" className="mx-2" id={id + "Demo"}>
             ${product.currentPrice}
           </Button>
-          <Button id={"productInfo"} variant="secondary" className="hover:bg-slate-50 dark:hover:bg-slate-500">
+          <Button id={id + "InfoDemo"} variant="secondary" className="hover:bg-slate-50 dark:hover:bg-slate-500">
                 View Info
             </Button>
         </div>
