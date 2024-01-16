@@ -4,9 +4,11 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { DarkToggle } from "@/components/darkToggle"
 import { useUser, SignOutButton, SignInButton, SignUpButton, SignedIn, SignedOut } from "@clerk/nextjs"
+import { useRouter } from 'next/navigation'
 
 export function LandingNav() {
     const {user, isLoaded} = useUser();
+    const router = useRouter();
 
     return (
         <header className="container px-4 mx-auto h-16 flex items-center justify-between w-full">
@@ -30,13 +32,15 @@ export function LandingNav() {
             <SignedOut>
                 <div className="space-x-2 flex items-center">
                     <DarkToggle />
-                    <SignInButton afterSignInUrl="/dashboard">
-                        <Button variant="outline" className="">
+                    <SignInButton redirectUrl="/dashboard">
+                        {/* <Button variant="outline" onClick={() => router.push("/dashboard")}> */}
+                        <Button variant="outline">
                             Sign In
                             {/* <Link href="/dashboard">Log In</Link> */}
                         </Button>
                     </SignInButton>
-                    <SignUpButton afterSignInUrl="/dashboard">
+                    <SignUpButton redirectUrl="/dashboard">
+                        {/* <Button onClick={() => router.push("/dashboard")}> */}
                         <Button>
                             Sign Up
                         </Button>
