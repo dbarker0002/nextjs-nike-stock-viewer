@@ -6,7 +6,6 @@ import CardGrid from '@/components/cardGrid';
 import { AddModal } from '@/components/addModal';
 import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
-import { DarkToggle } from '@/components/darkToggle';
 import { HiOutlineRefresh } from "react-icons/hi";
 import { BsCartCheck, BsQuestionCircle } from "react-icons/bs";
 import { FaRegCheckCircle } from "react-icons/fa";
@@ -14,19 +13,11 @@ import { RiComputerLine } from "react-icons/ri";
 import { FaAngleDown } from "react-icons/fa";
 import { GrDocumentDownload } from "react-icons/gr";
 import { Input } from "@/components/ui/input"
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Separator } from "@/components/ui/separator"
-import { PiStudentFill } from "react-icons/pi";
-import { LuDollarSign } from "react-icons/lu";
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/components/ui/alert"
 import { StatusFilterDropdown, PlatformFilterDropdown, AvailabilityFilterDropdown, PriceFilterDropdown } from '@/components/filterDropdown';
-import { HelpModal } from './helpModal';
 import Link from 'next/link';
 import { SettingsModal } from './settingsModal';
+// import { UserButton } from "@clerk/nextjs";
+import { UserButton } from '@/components/userButton';
 
 
 
@@ -56,6 +47,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
     const handleDelete = (sku: string) => {
         const newCards = cards.filter((card: ProductData) => card.sku !== sku);
         setCards(newCards);
+        // set skus from newCards to user's db entry
         window.localStorage.setItem('cards', JSON.stringify(newCards));
     }
 
@@ -72,6 +64,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
         });
 
         const updatedProducts = [...updatedCards, ...newProducts];
+        // set skus from updatedProducts to user's db entry
         localStorage.setItem('cards', JSON.stringify(updatedProducts));
 
         setCards(updatedProducts);
@@ -148,19 +141,15 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <div className="hidden md:block">
                     <Button variant="ghost" id="helpButton" className="p-0 mx-4 font-normal text-lg text-slate-400 hover:bg-transparent" asChild>
                         {/* <GrCircleQuestion className="mr-1" size="16px"/> */}
-                        <Link href="/dashboard">
+                        <Link className="text-slate-800" href="/dashboard">
                             Dashboard
                         </Link>
                     </Button>
-                    {/* <HelpModal /> */}
                     <SettingsModal />
                     </div>
                 </div>
-                <div className="flex flex-col items-center">
-                    <Avatar className="h-12 w-12">
-                        <AvatarImage src={""} alt={""} />
-                        <AvatarFallback>?</AvatarFallback>
-                    </Avatar>
+                <div className="flex items-center">
+                    <UserButton />
                 </div>
             </div>
             <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-52 flex flex-wrap items-center justify-between">
