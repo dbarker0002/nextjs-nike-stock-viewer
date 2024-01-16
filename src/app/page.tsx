@@ -2,108 +2,85 @@
  * v0 by Vercel.
  * @see https://v0.dev/t/Lj1pp0Te9RY
  */
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { MagicWandIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
-import { FaProductHunt, FaShoppingBag, FaShoppingCart } from "react-icons/fa"
 import { PiShoppingCartLight, PiSneaker } from "react-icons/pi"
-import { HiShoppingCart } from "react-icons/hi"
 import Image from "next/image"
 import { SampleCardItem } from "@/components/cardItem"
 import { SampleInfoModal } from "@/components/infoModal"
-import { DarkToggle } from "@/components/darkToggle"
+import { LandingNav } from "@/components/landingNav"
+
+// import { useUser } from '@clerk/nextjs'
 
 export default function Home() {
     let item = {
-    "sku": "DD1391-100",
-    "title": "Nike Dunk Low Retro",
-    "colorway": "White/White/Black",
-    "maxQty": "1",
-    "currentPrice": 115,
-    "status": "ACTIVE",
-    "publishType": "FLOW",
-    "sizes": [{
-        "code": "6",
-        "availability": "LOW"
-    }, {
-        "code": "7",
-        "availability": "LOW"
-    }, {
-        "code": "8",
-        "availability": "HIGH"
-    }, {
-        "code": "8.5",
-        "availability": "HIGH"
-    }, {
-        "code": "9",
-        "availability": "HIGH"
-    }, {
-        "code": "9.5",
-        "availability": "HIGH"
-    }, {
-        "code": "10",
-        "availability": "HIGH"
-    }, {
-        "code": "10.5",
-        "availability": "HIGH"
-    }, {
-        "code": "11",
-        "availability": "HIGH"
-    }, {
-        "code": "11.5",
-        "availability": "HIGH"
-    }, {
-        "code": "12",
-        "availability": "HIGH"
-    }, {
-        "code": "12.5",
-        "availability": "LOW"
-    }, {
-        "code": "13",
-        "availability": "HIGH"
-    }, {
-        "code": "14",
-        "availability": "HIGH"
-    }, {
-        "code": "15",
-        "availability": "HIGH"
-    }],
-    "imageURL": "https://secure-images.nike.com/is/image/DotCom/DD1391_100",
-    "exclusive": false,
-    "url": "https://www.nike.com/t/p/DD1391-100"
-}
+        "sku": "DD1391-100",
+        "title": "Nike Dunk Low Retro",
+        "colorway": "White/White/Black",
+        "maxQty": "1",
+        "currentPrice": 115,
+        "status": "ACTIVE",
+        "publishType": "FLOW",
+        "sizes": [{
+            "code": "6",
+            "availability": "LOW"
+        }, {
+            "code": "7",
+            "availability": "LOW"
+        }, {
+            "code": "8",
+            "availability": "HIGH"
+        }, {
+            "code": "8.5",
+            "availability": "HIGH"
+        }, {
+            "code": "9",
+            "availability": "HIGH"
+        }, {
+            "code": "9.5",
+            "availability": "HIGH"
+        }, {
+            "code": "10",
+            "availability": "HIGH"
+        }, {
+            "code": "10.5",
+            "availability": "HIGH"
+        }, {
+            "code": "11",
+            "availability": "HIGH"
+        }, {
+            "code": "11.5",
+            "availability": "HIGH"
+        }, {
+            "code": "12",
+            "availability": "HIGH"
+        }, {
+            "code": "12.5",
+            "availability": "LOW"
+        }, {
+            "code": "13",
+            "availability": "HIGH"
+        }, {
+            "code": "14",
+            "availability": "HIGH"
+        }, {
+            "code": "15",
+            "availability": "HIGH"
+        }],
+        "imageURL": "https://secure-images.nike.com/is/image/DotCom/DD1391_100",
+        "exclusive": false,
+        "url": "https://www.nike.com/t/p/DD1391-100"
+    }
+
+    // const { user, isLoaded } = useUser();
 
   return (
     <div className="flex flex-col min-h-screen">
-        <header className="container px-4 mx-auto h-16 flex items-center justify-between w-full">
-            <div className="flex items-center justify-start gap-6">
-                <Link className="flex items-center justify-center text-xl font-bold" href="">
-                Swoosh Spy
-                </Link>
-                <nav className="ml-4 hidden md:flex gap-4 sm:gap-6 items-center">
-                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#features">
-                        Features
-                    </Link>
-                    <Link className="text-md font-normal hover:underline underline-offset-4" href="#faq">
-                        FAQ
-                    </Link>
-                    <Link className="text-md font-normal hover:underline underline-offset-4" href="dashboard">
-                        Dashboard
-                    </Link>
-                </nav>
-            </div>
-            <div className="space-x-2 flex items-center">
-                <DarkToggle />
-                <Button variant="outline"className="" asChild>
-                <Link href="/dashboard">Log In</Link>
-                </Button>
-                <Button className="" asChild>
-                <Link href="/dashboard">Sign Up</Link>
-                </Button>
-            </div>
-        </header>
+        <LandingNav />
       <main className="flex-1 mt-2 md:mt-12">
         <section className="w-full">
           <div className="container px-4 md:px-6">
