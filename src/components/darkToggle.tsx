@@ -11,6 +11,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
  
 export function DarkToggle() {
   const { setTheme } = useTheme()
@@ -37,4 +45,21 @@ export function DarkToggle() {
       </DropdownMenuContent>
     </DropdownMenu>
   )
+}
+
+export function DarkSelect() {
+    const { setTheme } = useTheme()
+
+    return (
+        <Select onValueChange={(value) => setTheme(value)}>
+            <SelectTrigger className="w-[240px]">
+                <SelectValue placeholder="Select a theme" />
+            </SelectTrigger>
+            <SelectContent>
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+            </SelectContent>
+        </Select>
+    )
 }
