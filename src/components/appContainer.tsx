@@ -148,9 +148,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <SettingsModal />
                     </div>
                 </div>
-                <div className="flex items-center">
-                    <UserButton />
-                </div>
+                <UserButton />
             </div>
             <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-52 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2 mr-2 2xl:mr-0">

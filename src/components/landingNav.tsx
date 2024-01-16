@@ -36,7 +36,7 @@ export function LandingNav() {
                             {/* <Link href="/dashboard">Log In</Link> */}
                         </Button>
                     </SignInButton>
-                    <SignUpButton afterSignInUrl="/">
+                    <SignUpButton afterSignInUrl="/dashboard">
                         <Button>
                             Sign Up
                         </Button>
