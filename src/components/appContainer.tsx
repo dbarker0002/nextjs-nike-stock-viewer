@@ -133,7 +133,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
     return (
         <div className="w-full min-h-screen">
             <div className="fixed top-0 z-10 mt-0 bg-white dark:bg-[#020817]">
-            <div className="mx-4 my-4 space-x-40 md:space-x-1 flex flex-wrap items-center justify-start md:justify-between">
+            <div className="mx-4 my-4 space-x-40 pl-2 md:pl-0 md:space-x-1 flex flex-wrap items-center justify-start md:justify-between">
                 <div className="flex space-x-4 items-baseline">
                     <Link className="flex items-center justify-center flex-shrink-0 font-extrabold" href="/">
                         <h3>Swoosh Spy</h3>
