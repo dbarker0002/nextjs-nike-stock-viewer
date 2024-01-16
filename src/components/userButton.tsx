@@ -14,8 +14,8 @@ export function UserButton() {
     const router = useRouter()
 
     return (
-        <div className="items-center pt-1 hidden md:flex">
-        <span className="font-normal text-md mr-4">Signed in as {user?.emailAddresses[0].emailAddress.split("@")[0]}</span>
+        <div className="flex items-center pt-1">
+        <span className="font-normal text-md mr-4 hidden md:block">Signed in as {user?.emailAddresses[0].emailAddress.split("@")[0]}</span>
         <Popover>
             <PopoverTrigger asChild>
                 <Avatar className="h-11 w-11 hover:outline-2 hover:outline hover:cursor-pointer">

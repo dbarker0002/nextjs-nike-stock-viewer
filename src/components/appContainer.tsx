@@ -18,8 +18,6 @@ import Link from 'next/link';
 import { SettingsModal } from './settingsModal';
 // import { UserButton } from "@clerk/nextjs";
 import { UserButton } from '@/components/userButton';
-import { SignOutButton } from '@clerk/nextjs';
-import router from 'next/router';
 
 
 
@@ -135,7 +133,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
     return (
         <div className="w-full min-h-screen">
             <div className="fixed top-0 z-10 mt-0 bg-white dark:bg-[#020817]">
-            <div className="mx-4 my-4 space-x-1 flex flex-wrap items-center justify-between">
+            <div className="mx-4 my-4 space-x-40 md:space-x-1 flex flex-wrap items-center justify-start md:justify-between">
                 <div className="flex space-x-4 items-baseline">
                     <Link className="flex items-center justify-center flex-shrink-0 font-extrabold" href="/">
                         <h3>Swoosh Spy</h3>
@@ -151,9 +149,6 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     </div>
                 </div>
                 <UserButton />
-                <SignOutButton signOutCallback={() => router.push("/")}>
-                    <Button variant="outline" className="p-2 m-2 focus-visible:ring-0 hover:bg-inherit flex md:hidden">Sign Out</Button>
-                </SignOutButton>
             </div>
             <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-52 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2 mr-2 2xl:mr-0">
