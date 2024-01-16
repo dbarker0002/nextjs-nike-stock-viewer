@@ -14,7 +14,7 @@ export function UserButton() {
     const router = useRouter()
 
     return (
-        <div className="flex items-center pt-1">
+        <div className="flex items-center pt-1 pl-1 md:pl-0">
         <span className="font-normal text-md mr-4 hidden md:block">Signed in as {user?.emailAddresses[0].emailAddress.split("@")[0]}</span>
         <Popover>
             <PopoverTrigger asChild>
