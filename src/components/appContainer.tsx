@@ -157,19 +157,6 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     </div>
                 </div>
                 <div className="flex flex-col items-center">
-                    {/* <Alert className="pb-1 mb-0 outline-dashed outline-1 outline-slate-400 lg:block sm:hidden">
-                        <PiStudentFill className="w-6 h-6 mt-2" />
-                        <AlertTitle className="text-sm font-medium ml-2 mb-0 mt-0">Consider checking my work out below ↓</AlertTitle>
-                        <AlertDescription>
-                             <div className="flex items-center justify-start">
-                                <Button variant="link" className="p-2" id="linkedin">My LinkedIn</Button>
-                                <Separator orientation="vertical" className="h-[16px] bg-slate-400" />
-                                <Button variant="link" className="p-2" id="resume">My Resume</Button>
-                                <Separator orientation="vertical" className="h-[16px] bg-slate-400" />
-                                <Button variant="link" className="pl-2 pb-2 pr-0" id="github">View on GitHub</Button>
-                            </div>
-                        </AlertDescription>
-                    </Alert> */}
                     <Avatar className="h-12 w-12">
                         <AvatarImage src={""} alt={""} />
                         <AvatarFallback>?</AvatarFallback>
@@ -219,8 +206,6 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
                     <Button variant="outline" id="exportCsv" className="hidden md:flex" onClick={handleExportCSV}>
                         <GrDocumentDownload className="mr-1.5" />Export CSV</Button>
-                    {/* <HelpModal />
-                    <DarkToggle /> */}
                 </div>
             </div>
             <div>
