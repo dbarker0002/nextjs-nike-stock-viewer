@@ -80,7 +80,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-        <LandingNav />
+        <div className="sticky top-0 z-50 bg-background">
+            <LandingNav />
+        </div>
       <main className="flex-1 mt-2 md:mt-12">
         <section className="w-full">
           <div className="container px-4 md:px-6">
@@ -88,7 +90,7 @@ export default function Home() {
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md hidden lg:flex">Swoosh Spy is free forever! Track unlimited SKUs at no cost.</span>
             <span className="rounded-xl bg-muted px-4 py-1.5 text-sm font-medium shadow-md flex lg:hidden">Swoosh Spy is free forever! Track at no cost.</span>
               <div className="space-y-4">
-                <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none px-6 md:px-0">
+                <h1 id="hero" className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl/none px-6 md:px-0">
                   Keep track of any Nike product, whether it&#39;s 
                   <span className="bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent animate-pulse"> in stock </span>
                 or <span className="bg-gradient-to-r from-red-500 to-rose-500 bg-clip-text text-transparent animate-pulse">not</span>.
@@ -97,9 +99,9 @@ export default function Home() {
                   Any items. Live data. Beautifully visualized.
                 </p>
               </div>
-              <Button className="shadow-lg" asChild>
+              <Button className="shadow-xl text-lg py-5 px-5" size="lg" asChild>
                 <Link href="/dashboard">Get started for free</Link>
-                </Button>
+              </Button>
               <Image
                 alt="Product screenshot"
                 // className="w-full"
