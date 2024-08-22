@@ -15,7 +15,7 @@ export function LandingNav() {
             <Link className="flex items-center justify-center text-2xl font-bold" href="">
                 Swoosh Spy
             </Link>
-            <nav className="hidden md:flex gap-4 sm:gap-6 items-center">
+            {/* <nav className="hidden md:flex gap-4 sm:gap-6 items-center">
                 <Link className="text-lg font-normal hover:underline underline-offset-4 ml-4 text-center" href="#hero">
                     About
                 </Link>
@@ -25,12 +25,20 @@ export function LandingNav() {
                 <Link className="text-lg font-normal hover:underline underline-offset-4 text-center" href="#faq">
                     FAQ
                 </Link>
-                {/* <Link className="text-md font-normal hover:underline underline-offset-4" href="dashboard">
-                    Dashboard
-                </Link> */}
-            </nav>
+            </nav> */}
 
             <SignedOut>
+                <nav className="hidden md:flex gap-4 sm:gap-6 items-center">
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 ml-4 text-center" href="#hero">
+                        About
+                    </Link>
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 m-7 text-center" href="#features">
+                        Features
+                    </Link>
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 text-center" href="#faq">
+                        FAQ
+                    </Link>
+                </nav>
                 <div className="space-x-2 flex items-center">
                     {/* <DarkToggle /> */}
                     <SignInButton redirectUrl="/dashboard">
@@ -50,6 +58,17 @@ export function LandingNav() {
             </SignedOut>
 
             <SignedIn>
+                <nav className="hidden md:flex gap-4 sm:gap-6 items-center">
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 ml-12 text-center" href="#hero">
+                        About
+                    </Link>
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 m-7 text-center" href="#features">
+                        Features
+                    </Link>
+                    <Link className="text-lg font-normal hover:underline underline-offset-4 text-center" href="#faq">
+                        FAQ
+                    </Link>
+                </nav>
                 <div className="space-x-2 flex items-center">
                     {/* <DarkToggle /> */}
                     <SignOutButton>
