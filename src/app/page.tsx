@@ -110,8 +110,8 @@ export default function Home() {
                 style={{
                   objectFit: "cover",
                 }}
-                width="1250"
-                height="793"
+                width="1360"
+                height="882"
               />
             </div>
           </div>
