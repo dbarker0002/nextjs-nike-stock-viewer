@@ -27,9 +27,8 @@ export function SettingsModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="ghost" id="helpButton" className="p-0 mx-2 font-normal text-lg text-slate-800 hover:bg-transparent">
-                        {/* <GrCircleQuestion className="mr-1" size="16px"/> */}
-                        Help and Settings</Button>
+                <Button variant="outline" id="helpBtn" className="hidden md:flex">
+                <GrCircleQuestion className="mr-1.5" />Help</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>

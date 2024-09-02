@@ -138,19 +138,20 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <Link className="flex items-center justify-center flex-shrink-0 font-extrabold" href="/">
                         <h3>Swoosh Spy</h3>
                     </Link>
-                    <div className="hidden md:block">
+
+                    {/* <div className="hidden md:block">
                     <Button variant="ghost" id="helpButton" className="p-0 mx-4 font-normal text-lg text-slate-400 hover:bg-transparent" asChild>
-                        {/* <GrCircleQuestion className="mr-1" size="16px"/> */}
                         <Link className="text-slate-800" href="/dashboard">
                             Dashboard
                         </Link>
                     </Button>
                     <SettingsModal />
-                    </div>
+                    </div> */}
+                    
                 </div>
                 <UserButton />
             </div>
-            <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-52 flex flex-wrap items-center justify-between">
+            <div className="mx-4 mb-5 mt-4 space-x-0 2xl:space-x-28 flex flex-wrap items-center justify-between">
                 <div className="flex items-center flex-wrap space-x-2 mr-2 2xl:mr-0">
                     <StatusFilterDropdown
                         button={
@@ -182,7 +183,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                     <Input
                         id="search"
                         placeholder="Search Products"
-                        className="focus:ring-0 xl:w-96 lg:w-64 w-48"
+                        className="focus:ring-0 2xl:w-96 xl:w-64 lg:w-48 w-48"
                         onChange={(e) => setSearchValue(e.target.value)}
                         value={searchValue}
                     />
@@ -193,6 +194,7 @@ export default function AppContainer({products}: {products:ProductData[]}) {
                         <HiOutlineRefresh className="mr-1.5" />Refresh</Button>
                     <Button variant="outline" id="exportCsv" className="hidden md:flex" onClick={handleExportCSV}>
                         <GrDocumentDownload className="mr-1.5" />Export CSV</Button>
+                    <SettingsModal></SettingsModal>
                 </div>
             </div>
             <div>
